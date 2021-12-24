@@ -1,0 +1,39 @@
+
+# Create simulation box and atoms
+variable	a equal 2.461
+variable	c equal 6.708
+variable	sq3over2 equal $a*sqrt(3.0)/2.0
+variable	sq3over2 equal 2.461*sqrt(3.0)/2.0
+variable	aover2 equal $a/2.0
+variable	aover2 equal 2.461/2.0
+variable	onethird equal 1.0/3.0
+variable	twothird equal 2.0/3.0
+
+lattice 		custom 1.0 				a1	${aover2}	-${sq3over2}	0.0				a2	${aover2}	${sq3over2}	0.0				a3	0.0		0.0		$c				basis	0.0		0.0		0.25				basis	0.0		0.0		0.75				basis	${onethird}	${twothird}	0.25				basis	${twothird}	${onethird}	0.75
+lattice 		custom 1.0 				a1	1.2305	-${sq3over2}	0.0				a2	${aover2}	${sq3over2}	0.0				a3	0.0		0.0		$c				basis	0.0		0.0		0.25				basis	0.0		0.0		0.75				basis	${onethird}	${twothird}	0.25				basis	${twothird}	${onethird}	0.75
+lattice 		custom 1.0 				a1	1.2305	-2.1312885187135	0.0				a2	${aover2}	${sq3over2}	0.0				a3	0.0		0.0		$c				basis	0.0		0.0		0.25				basis	0.0		0.0		0.75				basis	${onethird}	${twothird}	0.25				basis	${twothird}	${onethird}	0.75
+lattice 		custom 1.0 				a1	1.2305	-2.1312885187135	0.0				a2	1.2305	${sq3over2}	0.0				a3	0.0		0.0		$c				basis	0.0		0.0		0.25				basis	0.0		0.0		0.75				basis	${onethird}	${twothird}	0.25				basis	${twothird}	${onethird}	0.75
+lattice 		custom 1.0 				a1	1.2305	-2.1312885187135	0.0				a2	1.2305	2.1312885187135	0.0				a3	0.0		0.0		$c				basis	0.0		0.0		0.25				basis	0.0		0.0		0.75				basis	${onethird}	${twothird}	0.25				basis	${twothird}	${onethird}	0.75
+lattice 		custom 1.0 				a1	1.2305	-2.1312885187135	0.0				a2	1.2305	2.1312885187135	0.0				a3	0.0		0.0		6.708				basis	0.0		0.0		0.25				basis	0.0		0.0		0.75				basis	${onethird}	${twothird}	0.25				basis	${twothird}	${onethird}	0.75
+lattice 		custom 1.0 				a1	1.2305	-2.1312885187135	0.0				a2	1.2305	2.1312885187135	0.0				a3	0.0		0.0		6.708				basis	0.0		0.0		0.25				basis	0.0		0.0		0.75				basis	0.333333333333333	${twothird}	0.25				basis	${twothird}	${onethird}	0.75
+lattice 		custom 1.0 				a1	1.2305	-2.1312885187135	0.0				a2	1.2305	2.1312885187135	0.0				a3	0.0		0.0		6.708				basis	0.0		0.0		0.25				basis	0.0		0.0		0.75				basis	0.333333333333333	0.666666666666667	0.25				basis	${twothird}	${onethird}	0.75
+lattice 		custom 1.0 				a1	1.2305	-2.1312885187135	0.0				a2	1.2305	2.1312885187135	0.0				a3	0.0		0.0		6.708				basis	0.0		0.0		0.25				basis	0.0		0.0		0.75				basis	0.333333333333333	0.666666666666667	0.25				basis	0.666666666666667	${onethird}	0.75
+lattice 		custom 1.0 				a1	1.2305	-2.1312885187135	0.0				a2	1.2305	2.1312885187135	0.0				a3	0.0		0.0		6.708				basis	0.0		0.0		0.25				basis	0.0		0.0		0.75				basis	0.333333333333333	0.666666666666667	0.25				basis	0.666666666666667	0.333333333333333	0.75
+Lattice spacing in x,y,z = 2.4610000 4.2625770 6.7080000
+
+region 		simbox block 0 5 0 5 0 5
+
+create_box          1 simbox
+Created orthogonal box = (0.0000000 0.0000000 0.0000000) to (12.305000 21.312885 33.540000)
+  1 by 1 by 1 MPI processor grid
+create_atoms        1 box
+Created 1000 atoms
+  create_atoms CPU = 0.001 seconds
+mass                1 12.0107
+
+
+write_data		data.${NAME}
+write_data		data.graphite_test
+System init for write_data ...
+WARNING: Communication cutoff is 0.0. No ghost atoms will be generated. Atoms may get lost. (../comm_brick.cpp:167)
+Total wall time: 0:00:00

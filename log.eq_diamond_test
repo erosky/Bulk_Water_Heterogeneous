@@ -1,0 +1,20 @@
+
+# Create simulation box and atoms
+lattice 		diamond 3.567
+Lattice spacing in x,y,z = 3.5670000 3.5670000 3.5670000
+region 		simbox block 0 8 0 8 0 8
+
+create_box          1 simbox
+Created orthogonal box = (0.0000000 0.0000000 0.0000000) to (28.536000 28.536000 28.536000)
+  1 by 1 by 1 MPI processor grid
+create_atoms        1 box
+Created 4096 atoms
+  create_atoms CPU = 0.002 seconds
+mass                1 12.0107
+
+
+write_data		data.${NAME}
+write_data		data.diamond_test
+System init for write_data ...
+WARNING: Communication cutoff is 0.0. No ghost atoms will be generated. Atoms may get lost. (../comm_brick.cpp:167)
+Total wall time: 0:00:00
