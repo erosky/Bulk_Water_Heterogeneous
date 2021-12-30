@@ -3,7 +3,7 @@
 # Lattice parameters from https://www.atomic-scale-physics.de/lattice/struk/olda9.html
 
 variable        SEED string 15177
-variable        NAME string graphite_test
+variable        NAME string graphite
 variable        TEMP string 225
 variable        END_TEMP string 205
 variable        STEPS string 8000000
@@ -32,15 +32,11 @@ lattice 		custom 1.0 	&
 			basis	${onethird}	${twothird}	0.25	&
 			basis	${twothird}	${onethird}	0.75
 			
-region 		simbox block 0 20 0 11.5 0 1.5
+region 		simbox block 0 5 0 5 0 5
 
 create_box          1 simbox
 create_atoms        1 box
-mass                1 12.010
+mass                1 12.0107
 
 
 write_data		data.${NAME}
-
-
-
-transmission fluid, steering pump fluid, belts, muffler, Buwn2016!

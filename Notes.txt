@@ -1,0 +1,38 @@
+potential between ML-mW and Carbon - should it be the same interaction as with mW or do we need to redo some optimization to get a certin contact angle for ML-mW
+
+Will the contact angle change between the two models?
+they have the same mass. Would it depend on interfacial free energy values?
+
+
+----- Dec 27
+
+Starting with mW model freezing rates?
+then move to ML
+
+1 kcal/mol = 0.043 eV
+
+Steps:
+1 - setup carbon slab
+2 - equilibrate box of water, save configuration
+3 - delete center area, insert carbon, equilibrate again, save configuration
+
+
+Determining expected freezing enhancement
+For mW water on a sheet of graphene, Lupi saw a 12 K increase in freezing temperature, cooling at a rate of 1 K/ns.
+Expect maybe a range of 5 to 15 enhancement 
+For mW I cooled 215 to 195 for 1 atm, -500 atm
+215 to 200 at -1000 atm
+
+Homogeneous avg freezing temps
+1 atm - 203 K
+-500 atm - 204 K
+-1000 atm - 205 K
+
+
+195 -- 215
+200 -- 220
+Aim for 208 - 218, 1 atm
+So, cool from 220 to 200 K
+
+
+

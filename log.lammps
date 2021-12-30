@@ -1,6 +1,7 @@
 LAMMPS (29 Oct 2020)
 # Simulation of monatomic water with graphite slab
 # Real units, atomic atom style (no bonded interactions)
+# Lattice parameters from https://www.atomic-scale-physics.de/lattice/struk/olda9.html
 
 variable        SEED string 15177
 variable        NAME string graphite_test
