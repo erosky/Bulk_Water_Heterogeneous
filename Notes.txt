@@ -34,5 +34,7 @@ Homogeneous avg freezing temps
 Aim for 208 - 218, 1 atm
 So, cool from 220 to 200 K
 
+mW water density - 0.033 N/A^3 (1 atm, 220 K)
+
 
 
