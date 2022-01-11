@@ -19,7 +19,7 @@ Steps:
 
 Determining expected freezing enhancement
 For mW water on a sheet of graphene, Lupi saw a 12 K increase in freezing temperature, cooling at a rate of 1 K/ns.
-Expect maybe a range of 5 to 15 enhancement 
+Expect maybe a range of 5 to 20 K enhancement 
 For mW I cooled 215 to 195 for 1 atm, -500 atm
 215 to 200 at -1000 atm
 
@@ -31,10 +31,10 @@ Homogeneous avg freezing temps
 
 195 -- 215
 200 -- 220
-Aim for 208 - 218, 1 atm
-So, cool from 220 to 200 K
+Aim for 208 - 223, 1 atm
+So, cool from 225 to 205 K
 
 mW water density - 0.033 N/A^3 (1 atm, 220 K)
 
 
-
+First trial run froze at what seems too be 216.5K, if everthing worked correctly.
