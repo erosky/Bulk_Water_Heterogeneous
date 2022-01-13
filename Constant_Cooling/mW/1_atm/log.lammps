@@ -6,9 +6,9 @@ LAMMPS (29 Oct 2020)
 # ending temperature at 205 K
 # Real units, atomic atom style (no bonded interactions)
 
-variable        SEED string 25266
+variable        SEED string 25268
 variable        NAME string het_freeze_test
-variable        DIR string test_1
+variable        DIR string test_2
 variable        TEMP string 225
 variable        END_TEMP string 205
 variable        STEPS string 8000000
@@ -19,5 +19,5 @@ variable        PCOUPL string 10000.0
 units	   	    real
 atom_style 	    atomic
 log				${DIR}/log.eq_${NAME}
-log				test_1/log.eq_${NAME}
-log				test_1/log.eq_het_freeze_test
+log				test_2/log.eq_${NAME}
+log				test_2/log.eq_het_freeze_test

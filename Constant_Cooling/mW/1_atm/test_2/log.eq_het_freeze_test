@@ -1,0 +1,46 @@
+
+# Create simulation box and atoms
+
+read_data data.graphite_substrate
+Reading data file ...
+  orthogonal box = (0.0000000 0.0000000 -0.039866738) to (49.220000 49.019636 60.101867)
+  2 by 2 by 3 MPI processor grid
+  reading atoms ...
+  6736 atoms
+  reading velocities ...
+  6736 velocities
+  read_data CPU = 0.012 seconds
+group water type 1
+3976 atoms in group water
+group graphite type 2
+2760 atoms in group graphite
+
+# Define potential
+
+pair_style sw
+pair_coeff * * mWC.sw mW C
+Reading sw potential file mWC.sw with DATE: 2019-02-27
+
+
+# Fix graphite atoms in place
+
+fix 5 graphite setforce 0.0 0.0 0.0
+velocity graphite set 0.0 0.0 0.0
+
+
+# Equilibration of molecular water
+
+# Add velocity/set timestep
+
+velocity	    water create ${TEMP} ${SEED} rot yes dist gaussian
+velocity	    water create 225 ${SEED} rot yes dist gaussian
+velocity	    water create 225 25268 rot yes dist gaussian
+timestep	    5.0
+
+# Define output
+
+compute			1 water msd
+compute			3 water temp
+compute			4 water pressure 3
+ERROR: Compute pressure must use group all (../compute_pressure.cpp:42)
+Last command: compute			4 water pressure 3
