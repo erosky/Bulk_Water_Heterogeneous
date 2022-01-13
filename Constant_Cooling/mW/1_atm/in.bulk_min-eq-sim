@@ -5,9 +5,9 @@
 # ending temperature at 205 K
 # Real units, atomic atom style (no bonded interactions)
 
-variable        SEED string 25266
+variable        SEED string 25268
 variable        NAME string het_freeze_test
-variable        DIR string test_1
+variable        DIR string test_2
 variable        TEMP string 225
 variable        END_TEMP string 205
 variable        STEPS string 8000000
@@ -47,8 +47,10 @@ timestep	    5.0
 # Define output
 
 compute			1 water msd
+compute			3 water temp
+compute			4 water pressure 3
 thermo	    	50
-thermo_style	custom step temp press vol etotal ke pe c_1[4]
+thermo_style	custom step temp press vol etotal ke pe c_1[4] c_3 c_4
 
 # Neighbor lists
 
@@ -87,8 +89,9 @@ log				${DIR}/log.run_${NAME}
 timestep	    10.0
 
 
-compute			2 water orientorder/atom nnn NULL cutoff 3.5
-dump		    1 all custom 1000 ${DIR}/prod.${NAME}-${TEMP}-${END_TEMP}.dump id type x y z vx vy vz c_2[*]
+compute			2 all orientorder/atom nnn NULL cutoff 3.5
+dump		    1 water custom 1000 ${DIR}/prod.water.${NAME}-${TEMP}-${END_TEMP}.dump id type x y z vx vy vz c_2[*]
+dump		    1 graphite custom 1000 ${DIR}/prod.graphite.${NAME}-${TEMP}-${END_TEMP}.dump id type x y z vx vy vz c_2[*]
 
 # Set fixes
 
