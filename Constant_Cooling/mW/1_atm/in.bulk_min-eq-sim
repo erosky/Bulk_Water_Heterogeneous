@@ -90,7 +90,7 @@ timestep	    10.0
 
 compute			2 all orientorder/atom nnn NULL cutoff 3.5
 dump		    1 water custom 1000 ${DIR}/prod.water.${NAME}-${TEMP}-${END_TEMP}.dump id type x y z vx vy vz c_2[*]
-dump		    1 graphite custom 1000 ${DIR}/prod.graphite.${NAME}-${TEMP}-${END_TEMP}.dump id type x y z vx vy vz c_2[*]
+dump		    2 graphite custom 1000 ${DIR}/prod.graphite.${NAME}-${TEMP}-${END_TEMP}.dump id type x y z vx vy vz c_2[*]
 
 # Set fixes
 
