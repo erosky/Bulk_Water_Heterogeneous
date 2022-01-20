@@ -5,6 +5,7 @@
 # ending temperature at 205 K
 # Real units, atomic atom style (no bonded interactions)
 
+
 variable        SEED string 25468
 variable        NAME string het_freeze_test
 variable        DIR string test_3
@@ -96,6 +97,7 @@ dump		    2 graphite custom 1000 ${DIR}/prod.graphite.${NAME}-${TEMP}-${END_TEMP
 
 fix             2 all nph iso ${PRES} ${PRES} ${PCOUPL} 
 fix             3 all temp/csvr ${TEMP} ${END_TEMP} ${TCOUPL} ${SEED}
+
 
 # Run 60 ns simulation
 
