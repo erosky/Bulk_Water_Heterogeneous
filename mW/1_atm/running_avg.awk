@@ -8,7 +8,7 @@
 
 
 
-BEGIN { N = 50 ; sum = 0 ; time_0 = 0 ; temp_0 = 215 }
+BEGIN { N = 50 ; sum = 0 ; time_0 = 0 ; temp_0 = 225 }
 {
 	if (NR % N == 0) { 
 		sum = sum+$7 ; time = ($2+time_0)/2 ; temp = ($3+temp_0)/2 ; avg = sum/N ; print time "\t" temp "\t" avg ; sum = 0 ; time_0 = $2 ; temp_0 = $3 
