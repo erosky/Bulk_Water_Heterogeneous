@@ -1,0 +1,23 @@
+LAMMPS (29 Oct 2020)
+# Simulation of monatomic water on a graphite substrate
+# load in conifguration
+# set inital velocities at 225 K
+# cool the water at a rate of 0.25 K/ns
+# ending temperature at 205 K
+# Real units, atomic atom style (no bonded interactions)
+
+variable        SEED string 25268
+variable        NAME string het_freeze_test
+variable        DIR string test_2
+variable        TEMP string 225
+variable        END_TEMP string 205
+variable        STEPS string 8000000
+variable        PRES string 1
+variable        TCOUPL string 5000.0
+variable        PCOUPL string 10000.0
+
+units	   	    real
+atom_style 	    atomic
+log				${DIR}/log.eq_${NAME}
+log				test_2/log.eq_${NAME}
+log				test_2/log.eq_het_freeze_test
