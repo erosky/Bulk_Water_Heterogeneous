@@ -11,7 +11,7 @@ do
 	echo $VARIABLE
 	mkdir analysis/test_$VARIABLE
 
-	./ice_ratio.awk test_$VARIABLE/prod.het_freeze_test-$START-$END.dump > analysis/test_$VARIABLE/ice_ratio.dat
+	./ice_ratio.awk test_$VARIABLE/prod.water.het_freeze_test-$START-$END.dump > analysis/test_$VARIABLE/ice_ratio.dat
 
 	# make plot of ice ratio, raw data
 	gnuplot -e "set terminal png size 1000,600; \
