@@ -3,15 +3,15 @@
 # extract data from dump files using the ice_ratio.awk, running_avg.ask, find_freezing_temp.py, and make_gnuplots.sh scripts
 
 START=225
-END=205
+END=210
 PRESSURE=1
 
-for VARIABLE in 1
+for VARIABLE in 3
 do
 	echo $VARIABLE
 	mkdir analysis/test_$VARIABLE
 
-	./ice_ratio.awk test_$VARIABLE/prod.het_freeze_test-$START-$END.dump > analysis/test_$VARIABLE/ice_ratio.dat
+	./ice_ratio.awk test_$VARIABLE/prod.water.het_freeze_test-$START-$END.dump > analysis/test_$VARIABLE/ice_ratio.dat
 
 	# make plot of ice ratio, raw data
 	gnuplot -e "set terminal png size 1000,600; \
@@ -28,10 +28,10 @@ do
 	./running_avg.awk analysis/test_$VARIABLE/ice_ratio.dat > analysis/test_$VARIABLE/ice_ratio_smooth.dat
 
 	# plot ice ratio
-	#python3 ~/Freezing_Simulations/Bulk_Water_Homogeneous/find_freezing_temp.py analysis/test_$VARIABLE/
+	python3 ~/Freezing_Simulations/Bulk_Water_Heterogeneous/find_freezing_temp.py analysis/test_$VARIABLE/
 
 	# plot data from log file
-	#./make_gnuplots.sh $VARIABLE
+	./make_gnuplots.sh $VARIABLE
 	
 
 done

@@ -6,9 +6,9 @@
 # Real units, atomic atom style (no bonded interactions)
 
 
-variable        SEED string 25468
-variable        NAME string het_freeze_test
-variable        DIR string test_3
+variable        SEED string 25168
+variable        NAME string het_freeze_0
+variable        DIR string run_0
 variable        TEMP string 225
 variable        END_TEMP string 210
 variable        STEPS string 6000000
@@ -59,9 +59,9 @@ neigh_modify    delay 0 every 1 check yes
 # Set fixes
 
 fix             1 water momentum 10 linear 1 1 1 rescale
-fix             2 all nve
-fix             3 all temp/csvr ${TEMP} ${TEMP} 500.0 ${SEED}
-fix             4 all press/berendsen iso ${PRES} ${PRES} 1000.0 modulus 20000
+fix             2 water nve
+fix             3 water temp/csvr ${TEMP} ${TEMP} 500.0 ${SEED}
+fix             4 water press/berendsen iso ${PRES} ${PRES} 1000.0 modulus 20000
 
 # Run 0.5 ns equilibration
 
@@ -89,14 +89,14 @@ log				${DIR}/log.run_${NAME}
 timestep	    10.0
 
 
-compute			2 all orientorder/atom nnn NULL cutoff 3.5
+compute			2 water orientorder/atom nnn NULL cutoff 3.5
 dump		    1 water custom 1000 ${DIR}/prod.water.${NAME}-${TEMP}-${END_TEMP}.dump id type x y z vx vy vz c_2[*]
 dump		    2 graphite custom 1000 ${DIR}/prod.graphite.${NAME}-${TEMP}-${END_TEMP}.dump id type x y z vx vy vz c_2[*]
 
 # Set fixes
 
-fix             2 all nph iso ${PRES} ${PRES} ${PCOUPL} 
-fix             3 all temp/csvr ${TEMP} ${END_TEMP} ${TCOUPL} ${SEED}
+fix             2 water nph iso ${PRES} ${PRES} ${PCOUPL} 
+fix             3 water temp/csvr ${TEMP} ${END_TEMP} ${TCOUPL} ${SEED}
 
 
 # Run 60 ns simulation
