@@ -9,11 +9,11 @@
 echo $1
 
 run=$1
-start=51 #41 for nvt
-end=120051 #120045 for 1000atm #160041
-logfile="./test_${run}/log.run_het_freeze_test"
-directory="./analysis/test_${run}"
-datafile="./analysis/test_${run}/run_homog_freeze_test.dat"
+start=51 
+end=120051 
+logfile="./run_${run}/log.run_het_freeze_${run}"
+directory="./analysis/run_${run}"
+datafile="./analysis/run_${run}/run_homog_freeze_${run}.dat"
 
 temp="225-210"
 pres="1 Atmosphere"
