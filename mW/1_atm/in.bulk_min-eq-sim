@@ -5,8 +5,7 @@
 # ending temperature at 205 K
 # Real units, atomic atom style (no bonded interactions)
 
-
-variable        SEED string 25168
+variable        SEED string 3540
 variable        NAME string het_freeze_0
 variable        DIR string run_0
 variable        TEMP string 225
