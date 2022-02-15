@@ -5,9 +5,9 @@
 # ending temperature at 205 K
 # Real units, atomic atom style (no bonded interactions)
 
-variable        SEED string 25368
-variable        NAME string het_freeze_test
-variable        DIR string test_1
+variable        SEED string 6971
+variable        NAME string het_freeze_0
+variable        DIR string run_0
 variable        TEMP string 225
 variable        END_TEMP string 210
 variable        STEPS string 6000000
@@ -88,7 +88,7 @@ log				${DIR}/log.run_${NAME}
 timestep	    10.0
 
 
-compute			2 all orientorder/atom nnn NULL cutoff 3.5
+compute			2 water orientorder/atom nnn NULL cutoff 3.5
 dump		    1 water custom 1000 ${DIR}/prod.water.${NAME}-${TEMP}-${END_TEMP}.dump id type x y z vx vy vz c_2[*]
 dump		    2 graphite custom 1000 ${DIR}/prod.graphite.${NAME}-${TEMP}-${END_TEMP}.dump id type x y z vx vy vz c_2[*]
 

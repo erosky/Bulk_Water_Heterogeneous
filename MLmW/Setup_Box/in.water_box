@@ -48,7 +48,7 @@ mass                1 18.015
 # Define potential
 #
 pair_style          sw
-pair_coeff          * * mW.sw mW
+pair_coeff          * * MLmW.sw mW
 
 # Run minimization
 #

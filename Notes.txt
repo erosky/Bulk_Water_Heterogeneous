@@ -38,3 +38,27 @@ mW water density - 0.033 N/A^3 (1 atm, 220 K)
 
 
 First trial run froze at what seems too be 216.5K, if everthing worked correctly.
+
+For ML-mW model,
+First guess is that the temperature increase will be roughly the same as for mW, therefore look for a freezing temperature in a 5 to 20K enhancement
+
+in homogeneous case, we used
+225 - 205 K for 1 atm
+230 - 210 K for -500 atm
+230 - 215 K for -1000 atm
+
+Homogeneous avg freezing temps
+215K at 1 atm
+219K at -500 atm
+223K at -1000 atm
+
+For graphite, we might expect freezing in the range
+220 - 235 K for 1 atm
+224 - 239 K for -500 atm
+228 - 243 K for -1000 atm
+
+
+For heterogeneous case, we can start by trying the above ranges for the cooling gradient.
+
+
+
