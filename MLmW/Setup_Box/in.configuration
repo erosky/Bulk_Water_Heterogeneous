@@ -13,9 +13,9 @@
 # 0.0 10.062000000000001 zlo zhi
 
 
-variable            TEMP string 220
+variable            TEMP string 235
 variable            PRES string 1
-variable            NAME string graphite_substrate
+variable            NAME string graphite_ML
 variable            TCOUPL string 5000.0
 variable            PCOUPL string 10000.0
 variable            TDAMP string 1000.0
@@ -40,7 +40,7 @@ variable 	YDIM string 49.019635930410494
 log log.eq_${NAME}
 
 # read in water data
-read_data data.liquid_mW group water extra/atom/types 1
+read_data data.liquid_ML group water extra/atom/types 1
 
 # remove area for graphite
 region substrate block 0 ${XDIM} 0 ${YDIM} ${Z_LO} ${Z_HI}
@@ -49,14 +49,12 @@ delete_atoms region substrate
 # Insert substrate
 read_data data.graphite_test add append shift 0.0 0.0 ${Z_LO} group graphite offset 1 0 0 0 0
 
-write_data data.substrate_test2
-
 
 # Define potential
 # CHECK ON THIS %%%%%%%%%%%%
 #
 pair_style sw
-pair_coeff * * mWC.sw mW C
+pair_coeff * * MLC.sw mW C
 
 
 # Delete water and ice atoms that are overlapping
