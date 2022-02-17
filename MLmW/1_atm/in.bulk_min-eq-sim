@@ -7,10 +7,10 @@
 
 variable        SEED string 3540
 variable        NAME string het_freeze_0
-variable        DIR string run_0
-variable        TEMP string 235
-variable        END_TEMP string 220
-variable        STEPS string 6000000
+variable        DIR string test_1
+variable        TEMP string 230
+variable        END_TEMP string 210
+variable        STEPS string 8000000
 variable        PRES string 1
 variable        TCOUPL string 5000.0
 variable        PCOUPL string 10000.0

@@ -60,5 +60,10 @@ For graphite, we might expect freezing in the range
 
 For heterogeneous case, we can start by trying the above ranges for the cooling gradient.
 
+I have started by not modifying the two body potential between ML molecules and carbon. I did change the three body angle to match the value of the MLmW potential.
+The first test run at 1 atm from 235K to 220 K did not have an ice nucleation event. This is surprising.
+
+I ran a second test run from 230 to 210 K
+
 
 
