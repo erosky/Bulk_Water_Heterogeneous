@@ -39,6 +39,8 @@ mW water density - 0.033 N/A^3 (1 atm, 220 K)
 
 First trial run froze at what seems too be 216.5K, if everthing worked correctly.
 
+
+------------------
 For ML-mW model,
 First guess is that the temperature increase will be roughly the same as for mW, therefore look for a freezing temperature in a 5 to 20K enhancement
 
@@ -63,7 +65,7 @@ For heterogeneous case, we can start by trying the above ranges for the cooling 
 I have started by not modifying the two body potential between ML molecules and carbon. I did change the three body angle to match the value of the MLmW potential.
 The first test run at 1 atm from 235K to 220 K did not have an ice nucleation event. This is surprising.
 
-I ran a second test run from 230 to 210 K
+I ran a second test run from 230 to 210 K. This trial froze at 220K, just 5K above homogeneous temp compared to 14K for mW
 
 
 
