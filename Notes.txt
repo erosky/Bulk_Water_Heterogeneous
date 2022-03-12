@@ -68,4 +68,17 @@ The first test run at 1 atm from 235K to 220 K did not have an ice nucleation ev
 I ran a second test run from 230 to 210 K. This trial froze at 220K, just 5K above homogeneous temp compared to 14K for mW
 
 
+At 235K:
+-500 atm MLmW water has density of ~0.0320 #/A**-3
+-1000 atm MLmW water has density of ~0.0310 #/A**-3
+
+
+Feb 28, 2022
+setting up input configurations for -500 and -1000 atm MLmW graphite runs
+When verifying that the system is in equilibrium (stable PE and MSD) -1000 looks a tiny bit questionable after equilibrating for 0.5 ns
+I am trying an equilibrations period of 1 ns and will see how the plots look. OUtcome: Cavitation occurred. Box exploded.
+
+The test_2 run of MLmW at 1 atm, with x and y axes fixed, had freezing take place at ~226 K
+for next test I will do 235 - 215
+maybe for production runs I can use a 15K range of 230 - 215, depending on the results of the next test run
 

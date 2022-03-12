@@ -6,7 +6,7 @@ START=225
 END=210
 PRESSURE=-1000
 
-for VARIABLE in 8 9
+for VARIABLE in 1 2 3
 do
 	echo $VARIABLE
 	mkdir analysis/run_$VARIABLE
