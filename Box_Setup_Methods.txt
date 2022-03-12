@@ -1,0 +1,19 @@
+Steps:
+
+1. Graphite sheet has been made (in.graphite) --> output (data.graphite)
+2. Equilibrate box of water at desired pressure and starting temp (in.water_box) --> output (data.liquid_MODEL_PRES)
+3. Add graphite sheet to water box and equilibrate (in.configuration) --> final output (data.graphite_MODEL_PRES)
+
+
+
+Things to check:
+
+- Inital density of water box is reasonable
+- Potential files are accurate
+- XY axes are fixed
+- Force on Graphite atoms are fixed when water in introduced
+
+
+Extra Notes:
+
+- Same graphite sheet goes in for all pressures

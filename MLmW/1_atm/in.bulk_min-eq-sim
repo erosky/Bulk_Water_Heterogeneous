@@ -5,9 +5,9 @@
 # ending temperature at 205 K
 # Real units, atomic atom style (no bonded interactions)
 
-variable        SEED string 3540
+variable        SEED string 3588
 variable        NAME string het_freeze_0
-variable        DIR string test_1
+variable        DIR string test_2
 variable        TEMP string 230
 variable        END_TEMP string 210
 variable        STEPS string 8000000
@@ -21,7 +21,7 @@ log				${DIR}/log.eq_${NAME}
 
 # Create simulation box and atoms
 
-read_data data.graphite_ML
+read_data data.graphite_ML_1atm
 group water type 1
 group graphite type 2
 
@@ -60,7 +60,7 @@ neigh_modify    delay 0 every 1 check yes
 fix             1 water momentum 10 linear 1 1 1 rescale
 fix             2 water nve
 fix             3 water temp/csvr ${TEMP} ${TEMP} 500.0 ${SEED}
-fix             4 water press/berendsen iso ${PRES} ${PRES} 1000.0 modulus 20000
+fix             4 water press/berendsen z ${PRES} ${PRES} 1000.0 modulus 20000
 
 # Run 0.5 ns equilibration
 
@@ -94,11 +94,11 @@ dump		    2 graphite custom 1000 ${DIR}/prod.graphite.${NAME}-${TEMP}-${END_TEMP
 
 # Set fixes
 
-fix             2 water nph iso ${PRES} ${PRES} ${PCOUPL} 
+fix             2 water nph z ${PRES} ${PRES} ${PCOUPL} 
 fix             3 water temp/csvr ${TEMP} ${END_TEMP} ${TCOUPL} ${SEED}
 
 
-# Run 60 ns simulation
+# Run simulation
 
 run	            ${STEPS}
 write_data		${DIR}/data.end-${NAME}-${TEMP}-${END_TEMP}
