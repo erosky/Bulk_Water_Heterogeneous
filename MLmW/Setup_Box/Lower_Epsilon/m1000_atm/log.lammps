@@ -15,8 +15,8 @@ LAMMPS (29 Oct 2020)
 
 
 variable            TEMP string 235
-variable            PRES string -500
-variable            NAME string graphite_ML_500atm_long
+variable            PRES string -1000
+variable            NAME string graphite_ML_1000atm_e
 variable            TCOUPL string 5000.0
 variable            PCOUPL string 10000.0
 variable            TDAMP string 1000.0
@@ -25,4 +25,4 @@ variable            PDAMP string 2500.0
 units	   	    real
 atom_style 	    atomic
 log		    log.eq_${NAME}
-log		    log.eq_graphite_ML_500atm_long
+log		    log.eq_graphite_ML_1000atm_e

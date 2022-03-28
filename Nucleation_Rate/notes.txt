@@ -1,0 +1,7 @@
+cooling rate is seconds = 0.25E9 K/s
+
+Tf in C
+
+"droplet" area is 2 x 49.22 x 49.019635930410494
+equals 4,825.4 square Angstroms
+4.82543e-17 square meter
