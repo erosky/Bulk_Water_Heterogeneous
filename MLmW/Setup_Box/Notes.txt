@@ -1,0 +1,5 @@
+MLmW-Carbon same as mW: -1000 atm cavitates, -500 does not
+
+decrease epsilon by 50%: -1000 atm cavitates, -500 does not
+
+increase epsilon by 50%: -1000 atm does not cavitate

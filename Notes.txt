@@ -82,3 +82,19 @@ The test_2 run of MLmW at 1 atm, with x and y axes fixed, had freezing take plac
 for next test I will do 235 - 215
 maybe for production runs I can use a 15K range of 230 - 215, depending on the results of the next test run
 
+April 1, 2022
+Increasing epsilon by ~50% elimintated the cavitation event that occured previously at -1000 atm. Whereas decreasing epsilon by 50% did not.
+I am running a cooling run from 230 - 210K at 1 Atm with the new "large epsilon" interaction potential.
+It froze at ~223.8K
+
+Next set of runs will be 230 - 215
+
+April 5, 2022
+based on the first five 230 - 215 runs, the remainder of runs will be from 233 - 218
+
+For -1000 atm, lets try 240 - 220
+
+April 6
+All 3 of the -1000 runs froze above 237K, so within a few degrees of starting cooling ramp. This is suspicious.
+The -1000 input configuration was equilibrated with the same thermostat at 235K for 1 ns and did not freeze, so why does it freeze at 237 within 0.5 ns?
+I am running a test run at 235K for 10 ns to see what happens.
