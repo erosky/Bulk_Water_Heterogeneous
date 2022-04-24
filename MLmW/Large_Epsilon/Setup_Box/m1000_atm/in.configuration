@@ -82,17 +82,52 @@ neigh_modify delay 0 every 1 check yes
 fix 1 graphite setforce 0.0 0.0 0.0
 velocity graphite set 0.0 0.0 0.0
 
+
+### NEW FOR TESTING
+
+# Set fixes
+
+fix             2 water momentum 10 linear 1 1 1 rescale
+fix             3 water nve
+fix             4 water temp/csvr ${TEMP} ${TEMP} 500.0 837493
+fix             5 water press/berendsen z ${PRES} ${PRES} 1000.0 modulus 20000
+
+# Run 0.5 ns equilibration
+
+timestep 5.0
+
+dump		    1 all atom 2000 testeq.${NAME}-${TEMP}.dump
+
+reset_timestep  0 
+
+run	            100000
+
+write_data		testdata.eq-${NAME}-${TEMP}
+undump          1
+
+reset_timestep  0 
+
+unfix           3
+unfix           4
+unfix           5
+
+
+timestep 10.0
+
+### END NEW FOR TESTING
+
+
 # Set fixes
 #
-fix 2 water momentum 10 linear 1 1 1 rescale
+#fix 2 water momentum 10 linear 1 1 1 rescale
 fix 3 all nph z ${PRES} ${PRES} ${PCOUPL} 
 fix 4 all temp/csvr ${TEMP} ${TEMP} ${TCOUPL} 837492
 
 
-# Run 1.0 ns equilibration of water
+# Run 0.5 ns equilibration of water
 #
 dump 1 all atom 1000 eq.all.${NAME}.dump
-run 100000
+run 50000
 
 # Create data file for import to other simulations
 #
