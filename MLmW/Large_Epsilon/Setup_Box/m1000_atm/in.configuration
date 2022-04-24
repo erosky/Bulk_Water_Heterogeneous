@@ -13,9 +13,9 @@
 # 0.0 10.062000000000001 zlo zhi
 
 
-variable            TEMP string 235
+variable            TEMP string 250
 variable            PRES string -1000
-variable            NAME string graphite_ML_1000atm_e
+variable            NAME string graphite_ML_1000atm_e_250K
 variable            TCOUPL string 5000.0
 variable            PCOUPL string 10000.0
 variable            TDAMP string 1000.0
@@ -40,7 +40,7 @@ variable 	YDIM string 49.019635930410494
 log log.eq_${NAME}
 
 # read in water data
-read_data data.liquid_ML_1000 group water extra/atom/types 1
+read_data data.liquid_ML_1000_250K group water extra/atom/types 1
 
 # remove area for graphite
 region substrate block 0 ${XDIM} 0 ${YDIM} ${Z_LO} ${Z_HI}
