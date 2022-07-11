@@ -4,5 +4,6 @@
 # exclude symbolic links to lammps software
 lmp_mpi
 
-# exclude avi files because they are too large
+# exclude video files because they are too large
 *.avi
+*.mp4
