@@ -16,7 +16,7 @@ runs = inputs[1:]
 
 # create file for freezing temperatures in analysis folder
 # data: RUN TEMP
-temperature_file = 'analysis/freeze_temp_fit_1atm.dat'
+temperature_file = 'analysis/freeze_temp_fit_1000atm.dat'
 f = open(temperature_file, "w")
 
 
@@ -35,7 +35,7 @@ for run in runs:
 	data = np.transpose(data)
 
 	# curve fit
-	popt, pcov = curve_fit(sigmoid, data[1], data[2], p0=[0.55, 20, 225, 0.0])
+	popt, pcov = curve_fit(sigmoid, data[1], data[2], p0=[0.55, 20, 235, 0.0])
 	print (popt)
 	print (pcov)
 	fit = []
@@ -72,12 +72,12 @@ S_avg = (S_sum/len(freeze_temperatures))**(0.5)
 
 
 # create file for plot of all runs
-all_runs_plot = 'analysis/fits_1atm.png'
+all_runs_plot = 'analysis/fits_1000atm.png'
 
 plt.figure(1)
-plt.xlim(230,215)
+plt.xlim(240,220)
 plt.ylim(0,1.0)
-plt.title('Heterogeneous freezing on modified graphite potential at 1 atm, MLmW Model, 0.25 K/ns')
+plt.title('Heterogeneous freezing on modified graphite potential at -1000 atm, MLmW Model, 0.25 K/ns')
 plt.xlabel('Temperature (K)')
 plt.ylabel('N ice / N total')
 for run in runs:
@@ -95,11 +95,11 @@ plt.savefig(all_runs_plot)
 
 
 # plot gradients
-all_gradients_plot = 'analysis/gradient_fit_1atm.png'
+all_gradients_plot = 'analysis/gradient_fit_1000atm.png'
 
 plt.figure(2)
-plt.xlim(230,215)
-plt.title('Heterogeneous freezing on modified graphite at 1 atm, MLmW Model, 0.25 K/ns')
+plt.xlim(240,220)
+plt.title('Heterogeneous freezing on modified graphite at -1000 atm, MLmW Model, 0.25 K/ns')
 plt.xlabel('Temperature (K)')
 plt.ylabel('Rate of change for (N ice / N total)')
 for run in runs:

@@ -98,3 +98,15 @@ April 6
 All 3 of the -1000 runs froze above 237K, so within a few degrees of starting cooling ramp. This is suspicious.
 The -1000 input configuration was equilibrated with the same thermostat at 235K for 1 ns and did not freeze, so why does it freeze at 237 within 0.5 ns?
 I am running a test run at 235K for 10 ns to see what happens.
+
+
+---
+April 25
+
+try to bring MLmW-graphite heterogeneous freezing temperature at 1 atm enhancement closer to that for the mW model heterogeneous 
+
+No increase in epsilon -  ~223K
+50% increase in epsilon - 225K
+
+50%epsilon MLmW - 10.3K temp increase
+mW - −13.555 temp increase

@@ -1,0 +1,5 @@
+
+# read in water data
+read_data data.liquidML_1000_245K group water extra/atom/types 1
+Reading data file ...
+ERROR on proc 0: Cannot open file data.liquidML_1000_245K: No such file or directory (../read_data.cpp:1965)

@@ -1,0 +1,62 @@
+Trial1:
+
+epsilon,  sigma,    a,         lambda,     gamma,      costheta0,  A,        B,            p,           q,     tol
+0.13      3.2       2.124872   0.0         0.0         0.0         7.111598  1.991526      4.011214     0.0    0.0
+
+Cavitation Test at -1000atm - FAILED
+
+
+
+
+Trial2:
+
+epsilon,  sigma,    a,         lambda,     gamma,      costheta0,  A,        B,            p,           q,     tol
+0.13      2.7       2.124872   0.0         0.0         0.0         7.111598  1.991526      4.011214     0.0    0.0
+
+Cavitation Test at -1000atm -
+Average Freezing temp at 1 atm -  
+
+
+Trial3:
+
+epsilon,  sigma,    a,         lambda,     gamma,      costheta0,  A,        B,            p,           q,     tol
+0.145      2.5       2.124872   0.0         0.0         0.0         7.111598  1.991526      4.011214     0.0    0.0
+
+Cavitation Test at -1000atm -
+Average Freezing temp at 1 atm -  
+
+
+
+TRIAL 4
+Lots of experimentation with the simulation files.
+I think the data file produced by in.water_box in the trial4 folder is definitely equilibrium and the proper volume for the water at 245K and -1000atm
+1. ran with fix nve only, pressure settled at -600 and temp at 220
+2. switched to npt and allowed box volume to adjust
+3. switched back to nve and verified that pressure and temperature maintain the desired value
+
+Okay so,
+(epsilon, sigma)
+(0.2, 2.3) at nve maintains -1000atm, temp settles at 250K, BUT HAS A CAVITY. 
+(0.3, 2.3) at nve pressure grows to -2000atm, temp grows to 265K, BUT HAS NO CAVITY
+(0.15, 2.3) at nve 
+
+After a week of some frustration, searching the parameter space for a stable MLmW-Carbon interaction potential, I finally discovered the source of the cavitation! It was something small but important that I overlooked in the LAMMPS input script. But it finally revealed itself.
+
+The Carbon atoms are set to be fixed in place with no velocity and therefore no temperature or pressure. When I was setting up the NPT ensemble for the simulations (thermostat and barostat applied, volume free to adjust) I had set it so that LAMMPS would try to apply the barostat and thermostat to ALL the atoms in the system, carbon included. I think this created conflicts in the simulation, and the software was probably trying to compensate for the fixed carbon atoms by making the water molecules do crazy things in order to get the combined system to match the desired pressure and temperature.
+
+I changed the script so that the NPT condition only applies to the water molecules. Now I can set up stable configurations at -1000 atm, and I think I actually have a lot of flexibility with tuning the MLmW-Carbon interaction now without fear of the system cavitating.
+
+
+
+MAY 16, 2022 - Parameter Search
+
+Try parameters.
+If the first freezing temp falls within 2 std dev, run 3 more runs
+If not, move to next set of paramters.
+
+Parameters_0 = 0.2, 2.3  FREEZING TEMOERATURE TOO LOW
+Parameters_1 = 0.13, 2.3 CAVITATION AT -1000 ATM
+Parameters_2 = 0.3, 2.2  FREEZING TEMPERATURE WITHIN TARGET RANGE
+Parameters_3 = 0.35, 2.2
+
+

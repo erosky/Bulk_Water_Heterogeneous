@@ -1,0 +1,14 @@
+the purpose of this filder is to makes ure that setting up the initial configuration with the nph ensemble applied to only water vs the previous method of nph applied to "all" doesn't change the nucleation rate results.
+
+I will set up an inital configuration for 1 atm, then run 5 freezing runs.
+
+THE FIRST FOUR RUNS HAD AN AVG FREEZING TEMP
+Average freezing temperature: 217.28375
+Sigma: 1.3473788210818811
+
+COMPARED TO THE RESULTS FROM THE INITIAL CONFIGURATION WHICH HAD
+Average freezing temperature: 217.56500000000003
+Sigma: 1.5844294451526286
+
+
+IT IS SAFE TO SAY THAT THE INITIAL RESULTS ARE STILL VALID
