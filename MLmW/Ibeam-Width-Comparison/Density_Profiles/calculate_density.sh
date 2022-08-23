@@ -11,23 +11,18 @@
 # -- where bin_volume = (max_x - min_x)*y_binw*z_binw
 # -- the average density in that z-layer is the average density of all y-bins
 
-DIR=../1_atm/
+DIR=../1_atm_30A/
 
-for RUN in 1 2 3 4 5
+
+for timestep in {50000..150000..2000}
 do
-	echo $RUN
-	mkdir 1_atm/run_$RUN
-	#for timestep in 0
-	for timestep in {0..50000..5000}
+	output=1_atm_30A/$timestep.dat
+	truncate -s 0 $output
+	sed -i -E "22 s/[0-9]+/$timestep/" find_density.awk
+	for zbin in {0..40..1}
 	do
-		output=1_atm/run_$RUN/$timestep.dat
-		truncate -s 0 $output
-		sed -i -E "22 s/[0-9]+/$timestep/" find_density.awk
-		for zbin in {0..60..1}
-		do
-			sed -i -E "24 s/([0-9]+\.?[0-9]*)|([0-9]*\.[0-9]+)/$zbin/" find_density.awk
-			./find_density.awk $DIR/run_$RUN/prod.water.het_freeze_$RUN-240-220.dump >> $output
-		done
+		sed -i -E "23 s/([0-9]+\.?[0-9]*)|([0-9]*\.[0-9]+)/$zbin/" find_density.awk
+		./find_density.awk $DIR/eq.ML_graphite_1atm_240K.dump >> $output
 	done
 done
 

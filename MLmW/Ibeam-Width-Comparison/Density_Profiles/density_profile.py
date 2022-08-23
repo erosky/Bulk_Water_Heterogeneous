@@ -6,11 +6,10 @@ import matplotlib.pyplot as plt
 import os
 import pandas as pd
 
-output = "1atm_50A_dens_profile_1z.dat"
+output = "1atm_30A_dens_profile.dat"
 
-runs = [1,2,3,4,5]
-timesteps = list(range(0, 50000, 5000))
-zbin_edges = list(range(0, 61, 1))
+timesteps = list(range(50000, 148000, 2000))
+zbin_edges = list(range(0, 41, 1))
 print (zbin_edges)
 
 
@@ -20,18 +19,18 @@ ybin_columns = ['ZBIN', 'N', 'ZBIN_VOLUME']
 data = []
 ## Load the data structure outlined above
 ##
-for run in runs:
-	for step in timesteps:
-		zbin_data = np.loadtxt('./1_atm/run_' + str(run) + '/'+str(step)+'.dat')
-		zbin_data = zbin_data.transpose()
-		data.append(zbin_data[2])
+
+for step in timesteps:
+	zbin_data = np.loadtxt('./1_atm_30A/'+str(step)+'.dat')
+	zbin_data = zbin_data.transpose()
+	data.append(zbin_data[2])
 
 
 avg_data = np.mean(data, axis=0)
 print(avg_data)	
 
 f = open(output, 'w')
-for bin in range(61):
+for bin in range(41):
 	print (bin)
 	f.write(str(zbin_edges[bin]) + '\t' + str(avg_data[bin]) + '\n')
 
