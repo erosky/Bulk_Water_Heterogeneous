@@ -10,12 +10,6 @@ pmax = 120.0
 P_range=np.arange(pmin, pmax, 5)
 
 
-mW_J=[209, 207.75, 205.5]
-mW_dJ=[-64, -65.25, -67.5]
-mW_dJ_th=[-65.3, -66.4, -67.5]
-mW_melt=[275, 274, 273]
-mW_dmelt=[2, 1, 0]
-
 MLmW_J=[223.4, 219.6, 214.5]
 MLmW_dJ=[-68.6, -72.4, -77.5]
 MLmW_dJ_th=[-70.7, -74.1, -77.5]
@@ -28,11 +22,10 @@ MLmW_Jlow=[-75, -76, -80]
 
 # Heterogeneous Freezing lines of J=10^24
 
-mW_het=[221.7, 220.83, 219.055]
-mW_het_th=[-51.445, -52.32, -54.095]
 
-MLmW_het=[239.2, 234.62, 227.06]
-MLmW_het_th=[-52.75, -57.38, -64.94]
+MLmW_het=[241, 234.5, 228]
+MLmW_het_th=[-51, -57.5, -64]
+MLmW_dJ_het=[-57.2, -60.6, -64]
 
 #--------------------
 # Marcolli
@@ -62,16 +55,12 @@ plt.plot(pressures, MLmW_dJ, '^g', linewidth=1.0, label=r'MLmW $J=10^{32} m^{-3}
 
 
 
-plt.plot(pressures, mW_dmelt,'bo', linewidth=1.0, label=r'mW $T_{melt}$')
-plt.plot(pressures, mW_dJ,'^b', linewidth=1.0, label=r'mW $J=10^{32} m^{-3}s^{-1}$')
-
-
 plt.xlim(pmin, pmax)
 plt.legend(loc='lower right')
 plt.grid(color='#d4d4d4', linestyle='--', linewidth=1)
 
 plt.tight_layout()
-plt.savefig('plot_PT_delta_MLtest.png', dpi=300)
+plt.savefig('plot_PT_delta_MLmW.png', dpi=300)
 
 
 #--------------------
@@ -84,28 +73,23 @@ ax.hlines(0, pmin, pmax, colors=['k'])
 ax.text(-115, -3, r'$T_{melt}$ at 0 MPa')
 
 ax.plot(P_range, Mar_T(P_range)-273, '#707070', label=r'$T_{melt}$ Marcolli')
-ax.plot(pressures, mW_dmelt,'bo', linewidth=1.0, label=r'mW $T_{melt}$')
 ax.plot(pressures, MLmW_dmelt, 'go', linewidth=1.0, label=r'MLmW $T_{melt}$')
 
 
 # plot all data on second axis
 #--- melting data
 ax2.plot(P_range, Mar_T(P_range)-273, '#707070', label=r'$T_{melt}$ Marcolli')
-ax2.plot(pressures, mW_dmelt,'bo', linewidth=1.0, label=r'mW $T_{melt}$')
 ax2.plot(pressures, MLmW_dmelt, 'go', linewidth=1.0, label=r'ML-mW $T_{melt}$')
 
 #--- freezing data
-
-ax2.plot(pressures, mW_dJ_th,'b--', linewidth=1.5)
-ax2.plot(pressures, mW_dJ,'^b', linewidth=1.0, label=r'mW $J=10^{32}$ m$^{-3}$s$^{-1}$')
-ax2.plot(pressures, mW_het_th, 'sb', linewidth=1.0, label=r'mW $Jhet=10^{24}$ m$^{-2}$s$^{-1}$')
 
 
 
 ax2.fill_between(pressures, MLmW_Jhigh, MLmW_Jlow, color='g', alpha=0.2)
 ax2.plot(pressures, MLmW_dJ, '^g', linewidth=1.0, label=r'ML-mW $J=10^{32}$ m$^{-3}$s$^{-1}$')
 ax2.plot(pressures, MLmW_dJ_th, 'g--', linewidth=1.5, label='Equation 1')
-ax2.plot([-100, -50, 1], MLmW_het_th, 'sg', linewidth=1.0, label=r'MLmW $Jhet=10^{24}$ m$^{-2}$s$^{-1}$')
+ax2.plot([-100, -50, 1], MLmW_het_th, '^r', linewidth=1.0, label=r'MLmW $Jhet=10^{24}$ m$^{-2}$s$^{-1}$')
+ax2.plot(pressures, MLmW_dJ_het, 'r--', linewidth=1.5, label='Equation 1')
 
 
 
@@ -157,6 +141,6 @@ ax2.plot((1 - d, 1 + d), (1 - d, 1 + d), **kwargs)  # bottom-right diagonal
 ax.set_title('Homogeneous and heterogeneous nucleation rate, MLmW')
 ax2.set_xlabel('Pressure (MPa)')
 ax2.set_ylabel(r'T - T$_{melt}$')
-plt.savefig('PT_diagram_MLmWtest.png', dpi=300)
+plt.savefig('PT_diagram_MLmW.png', dpi=1000)
 
 

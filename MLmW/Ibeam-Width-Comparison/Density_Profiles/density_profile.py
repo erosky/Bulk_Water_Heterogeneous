@@ -6,10 +6,11 @@ import matplotlib.pyplot as plt
 import os
 import pandas as pd
 
-output = "1atm_30A_dens_profile.dat"
+output = "m1000atm_24A_dens_profile.dat"
 
-timesteps = list(range(50000, 148000, 2000))
-zbin_edges = list(range(0, 41, 1))
+#timesteps = list(range(50000, 148000, 2000))
+timesteps = list(range(26000, 48000, 2000))
+zbin_edges = list(range(0, 36, 1))
 print (zbin_edges)
 
 
@@ -21,7 +22,7 @@ data = []
 ##
 
 for step in timesteps:
-	zbin_data = np.loadtxt('./1_atm_30A/'+str(step)+'.dat')
+	zbin_data = np.loadtxt('./m1000_atm_24A/'+str(step)+'.dat')
 	zbin_data = zbin_data.transpose()
 	data.append(zbin_data[2])
 
@@ -30,7 +31,7 @@ avg_data = np.mean(data, axis=0)
 print(avg_data)	
 
 f = open(output, 'w')
-for bin in range(41):
+for bin in range(36):
 	print (bin)
 	f.write(str(zbin_edges[bin]) + '\t' + str(avg_data[bin]) + '\n')
 

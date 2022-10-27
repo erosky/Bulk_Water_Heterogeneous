@@ -19,8 +19,8 @@
 
 
 
-BEGIN { STEP = 150000 ; 
-	ZBIN = 40 ;
+BEGIN { STEP = 50000 ; 
+	ZBIN = 35 ;
 	ZBIN_WIDTH = 1.0 ;
 	N = 0 ; VOL = 2412.7465 ; start = 0 } 
 {

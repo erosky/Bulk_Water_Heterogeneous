@@ -30,6 +30,7 @@ MLmW_Jlow=[-75, -76, -80]
 
 mW_het=[221.7, 220.83, 219.055]
 mW_het_th=[-51.445, -52.32, -54.095]
+mW_dJ_het=[-51.895, -52.995, -54.095]
 
 #--------------------
 # Marcolli
@@ -94,6 +95,8 @@ ax2.plot(pressures, mW_dmelt,'bo', linewidth=1.0, label=r'mW $T_{melt}$')
 ax2.plot(pressures, mW_dJ_th,'b--', linewidth=1.5)
 ax2.plot(pressures, mW_dJ,'^b', linewidth=1.0, label=r'mW $J=10^{32}$ m$^{-3}$s$^{-1}$')
 ax2.plot(pressures, mW_het_th, '^r', linewidth=1.0, label=r'mW $Jhet=10^{24}$ m$^{-2}$s$^{-1}$')
+ax2.plot(pressures, mW_dJ_het,'r--', linewidth=1.5)
+
 
 
 '''
