@@ -35,7 +35,7 @@ for run in runs:
 	data = np.transpose(data)
 
 	# curve fit
-	popt, pcov = curve_fit(sigmoid, data[1], data[2], p0=[0.55, 20, 230, 0.0])
+	popt, pcov = curve_fit(sigmoid, data[1], data[2], p0=[0.55, 20, 235, 0.0])
 	print (popt)
 	print (pcov)
 	fit = []
