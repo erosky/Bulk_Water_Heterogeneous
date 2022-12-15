@@ -1,4 +1,4 @@
-function [Tfcenters, Jhet] = Jhet2(Tf, c, droparea, numberofbins);
+function [Tfcenters, Jbin, Jhet, ttot, events, increment] = Jhet2(Tf, c, droparea, numberofbins);
 %formulas and Equn #s are from Zobrist et al.; JPC C; 111, 2007; pg. 2151
 %Tf is a list of freezing temperatures in C (temperatures, not supercooling)
 %c is the cooling rate; use a positive number; decreasing T is implied here
@@ -26,6 +26,7 @@ end
 %now go through and find freezing events
 freezingeventsinbin = zeros(numbins,1);
 Jbin = zeros(numbins,1);
+ttot = zeros(numbins,1);
 for i = 1:numbins
     Tfsinbin = find(Tf>Tfedges(i) & Tf<Tfedges(i+1)); %Tf(i) is the lower temperature
     freezingeventsinbin(i) = length(Tfsinbin); %this is the number of Tfs that fell between the bin edges
@@ -43,9 +44,11 @@ for i = 1:numbins
     
     ttotforbin = timeunfrzn+sum(tfrzn);
     
+    ttot(i) = ttotforbin;
+    
     Jbin(i) = freezingeventsinbin(i)/ttotforbin;
     
 end
 
 Jhet = Jbin./droparea;
-
+events = freezingeventsinbin;

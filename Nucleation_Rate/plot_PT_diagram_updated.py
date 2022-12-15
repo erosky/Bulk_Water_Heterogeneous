@@ -28,9 +28,33 @@ MLmW_Jlow=[-75, -76, -80]
 
 # Heterogeneous Freezing lines of J=10^24
 
-mW_het=[221.7, 220.83, 219.055]
-mW_het_th=[-51.445, -52.32, -54.095]
-mW_dJ_het=[-51.895, -52.995, -54.095]
+#mW_het=[220.8575, 219.4, 218.4] # old data
+#mW_het_th=[-52.25, -53.75, -54.75]
+#mW_dJ_het=[-51.895, -52.995, -54.095]
+
+
+
+mW_het=[219.6, 217.87, 216.8]
+mW_dJ_het=[]
+for t in mW_het:
+	mW_dJ_het.append(t-273)
+
+# theoretical approximation with dT of 3.4
+mW_het_th=[mW_dJ_het[2]+2, mW_dJ_het[2]+1, mW_dJ_het[2]]
+
+	
+	
+# Heterogeneous error bounds
+mW_het_dT = [2.49, 3.13, 3.2]
+mW_het_Jhigh=[]
+mW_het_Jlow=[]
+for i,t in enumerate(mW_dJ_het):
+	mW_het_Jhigh.append(t + mW_het_dT[i]/2)
+	mW_het_Jlow.append(t - mW_het_dT[i]/2)
+
+
+
+
 
 #--------------------
 # Marcolli
@@ -80,22 +104,25 @@ f, (ax, ax2) = plt.subplots(2, 1, sharex=True)
 ax.hlines(0, pmin, pmax, colors=['k'])
 ax.text(-115, -3, r'$T_{melt}$ at 0 MPa')
 
-ax.plot(P_range, Mar_T(P_range)-273, '#707070', label=r'$T_{melt}$ Marcolli')
-ax.plot(pressures, mW_dmelt,'bo', linewidth=1.0, label=r'mW $T_{melt}$')
+ax.plot(P_range, Mar_T(P_range)-273, '#707070')
+ax.plot(pressures, mW_dmelt,'go', fillstyle='none', linewidth=1.0)
 #ax.plot(pressures, MLmW_dmelt, 'go', linewidth=1.0, label=r'MLmW $T_{melt}$')
 
 
 # plot all data on second axis
 #--- melting data
-ax2.plot(P_range, Mar_T(P_range)-273, '#707070', label=r'$T_{melt}$ Marcolli')
-ax2.plot(pressures, mW_dmelt,'bo', linewidth=1.0, label=r'mW $T_{melt}$')
+ax2.plot(P_range, Mar_T(P_range)-273, '#707070', label=r'$T_{melt}$ (Marcolli 2017)')
+ax2.plot(pressures, mW_dmelt,'go', fillstyle='none', linewidth=1.0, label=r'$T_{melt}$ (Rosky 2022)')
 #ax2.plot(pressures, MLmW_dmelt, 'go', linewidth=1.0, label=r'ML-mW $T_{melt}$')
 
 #--- freezing data
+
 ax2.plot(pressures, mW_dJ_th,'b--', linewidth=1.5)
-ax2.plot(pressures, mW_dJ,'^b', linewidth=1.0, label=r'mW $J=10^{32}$ m$^{-3}$s$^{-1}$')
-ax2.plot(pressures, mW_het_th, '^r', linewidth=1.0, label=r'mW $Jhet=10^{24}$ m$^{-2}$s$^{-1}$')
-ax2.plot(pressures, mW_dJ_het,'r--', linewidth=1.5)
+ax2.plot(pressures, mW_dJ,'bo', fillstyle='none', linewidth=1.0, label=r'$J_{hom}=10^{32}$ m$^{-3}$s$^{-1}$ (Rosky 2022)')
+ax2.fill_between(pressures, mW_het_Jhigh, mW_het_Jlow, color='r', alpha=0.2)
+ax2.plot(pressures, mW_dJ_het, 'ro', linewidth=1.0, label=r'$J_{het}=10^{24}$ m$^{-2}$s$^{-1}$')
+ax2.plot(pressures, mW_het_th,'r--', linewidth=1.5, label='Equation 1')
+
 
 
 
@@ -114,9 +141,9 @@ ax2.plot(pressures, MLmW_dJ_th, 'g--', linewidth=1.5, label='Equation 1')
 ax.set_ylim(-5., 10.)  # melting 
 ax2.set_ylim(-75., -50.)  # homogeneous freezing
 
-ax.set_xlim(pmin, pmax+5)
-ax2.set_xlim(pmin, pmax+5)
-ax2.legend(loc='lower right')
+ax.set_xlim(pmin, pmax+20)
+ax2.set_xlim(pmin, pmax+20)
+ax2.legend(loc='lower right', fontsize='small')
 
 # hide the spines between ax and ax2
 ax.spines['bottom'].set_visible(False)
@@ -154,6 +181,6 @@ ax2.plot((1 - d, 1 + d), (1 - d, 1 + d), **kwargs)  # bottom-right diagonal
 ax.set_title('Homogeneous and heterogeneous nucleation rate, mW')
 ax2.set_xlabel('Pressure (MPa)')
 ax2.set_ylabel(r'T - T$_{melt}$')
-plt.savefig('PT_diagram_mW.png', dpi=300)
+plt.savefig('PT_diagram_mW_bounds.png', dpi=300)
 
 
