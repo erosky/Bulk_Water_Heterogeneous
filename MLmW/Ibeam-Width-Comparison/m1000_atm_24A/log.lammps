@@ -14,9 +14,9 @@ LAMMPS (29 Oct 2020)
 # 0.0 10.062000000000001 zlo zhi
 
 
-variable            TEMP string 240
+variable            TEMP string 250
 variable            PRES string -1000
-variable            NAME string ML_graphite_m1000atm_240K
+variable            NAME string ML_graphite_m1000atm_250K
 variable            TCOUPL string 5000.0
 variable            PCOUPL string 10000.0
 variable            TDAMP string 1000.0
@@ -25,4 +25,4 @@ variable            PDAMP string 10000.0
 units	   	    real
 atom_style 	    atomic
 log		    log.eq_${NAME}
-log		    log.eq_ML_graphite_m1000atm_240K
+log		    log.eq_ML_graphite_m1000atm_250K

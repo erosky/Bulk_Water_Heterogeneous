@@ -13,9 +13,9 @@
 # 0.0 10.062000000000001 zlo zhi
 
 
-variable            TEMP string 250
-variable            PRES string -1000
-variable            NAME string ML_graphite_m1000atm_250K
+variable            TEMP string 240
+variable            PRES string -500
+variable            NAME string ML_graphite_m500atm_240K
 variable            TCOUPL string 5000.0
 variable            PCOUPL string 10000.0
 variable            TDAMP string 1000.0
@@ -26,7 +26,7 @@ atom_style 	    atomic
 log		    log.eq_${NAME}
 
 variable Z_G equal 10.062
-variable Z_LO equal 12
+variable Z_LO equal 15
 variable Z_HI equal ${Z_LO}+${Z_G}
 
 variable	XDIM string 49.22
@@ -40,14 +40,14 @@ variable 	YDIM string 49.019635930410494
 log log.eq_${NAME}
 
 # read in water data
-read_data data.ML_m1000atm_240K group water extra/atom/types 1
+read_data data.ML_m500atm_240K group water extra/atom/types 1
 
 # remove area for graphite
 region substrate block 0 ${XDIM} 0 ${YDIM} 0 ${Z_G}
 delete_atoms region substrate
 
 # Insert substrate
-read_data data.graphite add append shift 0.0 0.0 0.0 group graphite offset 1 0 0 0 0
+read_data data.graphite add append shift 0.0 0.0 ${Z_LO} group graphite offset 1 0 0 0 0
 
 
 # Define potential
@@ -97,7 +97,7 @@ fix 2 water momentum 10 linear 1 1 1 rescale
 fix 3 water nph z ${PRES} ${PRES} ${PCOUPL} 
 fix 4 water temp/csvr ${TEMP} ${TEMP} ${TCOUPL} 837492
 
-dump 	1 all custom 2000 nph.${NAME}.dump id type x y z
+dump 	1 all atom 2000 nph.${NAME}.dump
 run 	25000
 
 unfix           3
@@ -108,7 +108,7 @@ undump          1
 # Run 0.25 ns equilibration of water in NVE ensemble
 #
 fix            3 water nve
-dump		1 all custom 2000 nve.${NAME}.dump id type x y z
+dump		1 all atom 2000 nve.${NAME}.dump
 run	        25000
 
 unfix 3
