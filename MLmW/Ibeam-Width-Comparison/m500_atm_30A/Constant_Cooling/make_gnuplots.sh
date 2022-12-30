@@ -15,10 +15,10 @@ logfile="./run_${run}/log.run_het_freeze_${run}"
 directory="./analysis/run_${run}"
 datafile="./analysis/run_${run}/run_homog_freeze_${run}.dat"
 
-temp="240-220"
+temp="240-225"
 pres="1 Atmosphere"
 Tstart=240
-Tend=220
+Tend=225
 
 
 

@@ -9,11 +9,11 @@
 # sim timestep is 10 fs each step, 0.000001 ns
 
 
-BEGIN { TOTAL = 1777 ; threshold = 0.54 ; ice = 0 ; start = 0 } 
+BEGIN { TOTAL = 1800 ; threshold = 0.54 ; ice = 0 ; start = 0 } 
 {
 	if ($2=="TIMESTEP") {
 		if (start==1) { 
-			print step "\t" step*0.00001 "\t" 240-step*0.25*0.00001 "\t" ice "\t" TOTAL-ice "\t" TOTAL "\t" ice/TOTAL
+			print step "\t" step*0.00001 "\t" 250-step*0.25*0.00001 "\t" ice "\t" TOTAL-ice "\t" TOTAL "\t" ice/TOTAL
 		} ; 
 		t = 1 ; a = 0 ; next 
 	}
@@ -23,4 +23,4 @@ BEGIN { TOTAL = 1777 ; threshold = 0.54 ; ice = 0 ; start = 0 }
 	}
 	if (a==1 && $10>threshold && $2==1) { ice++ }
 }
-END { print step "\t" step*0.00001 "\t" 240-step*0.25*0.00001 "\t" ice "\t" TOTAL-ice "\t" TOTAL "\t" ice/TOTAL }
+END { print step "\t" step*0.00001 "\t" 250-step*0.25*0.00001 "\t" ice "\t" TOTAL-ice "\t" TOTAL "\t" ice/TOTAL }

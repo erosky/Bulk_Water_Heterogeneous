@@ -9,7 +9,7 @@
 # sim timestep is 10 fs each step, 0.000001 ns
 
 
-BEGIN { TOTAL = 2230 ; threshold = 0.54 ; ice = 0 ; start = 0 } 
+BEGIN { TOTAL = 2261 ; threshold = 0.54 ; ice = 0 ; start = 0 } 
 {
 	if ($2=="TIMESTEP") {
 		if (start==1) { 

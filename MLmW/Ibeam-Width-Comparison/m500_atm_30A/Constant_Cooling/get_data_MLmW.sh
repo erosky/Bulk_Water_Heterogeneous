@@ -3,7 +3,7 @@
 # extract data from dump files using the ice_ratio.awk, running_avg.ask, find_freezing_temp.py, and make_gnuplots.sh scripts
 
 START=240
-END=220
+END=225
 PRESSURE=1
 
 for VARIABLE in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20

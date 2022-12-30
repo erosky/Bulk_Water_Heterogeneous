@@ -2,11 +2,11 @@
 #
 # extract data from dump files using the ice_ratio.awk, running_avg.ask, find_freezing_temp.py, and make_gnuplots.sh scripts
 
-START=240
-END=220
-PRESSURE=-500
+START=250
+END=230
+PRESSURE=-1000
 
-for VARIABLE in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+for VARIABLE in 1 2 3 4 5 6 7 8 9 10
 do
 	echo $VARIABLE
 	mkdir analysis

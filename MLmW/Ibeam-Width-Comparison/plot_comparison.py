@@ -7,9 +7,9 @@ from scipy.optimize import curve_fit
 
 #Data
 unconfined = [[1,-500,-1000],[227.8, 236, 241],[4/2, 5.9/2, 8/2]]
-sixlayer = [[1, -500],[234, 244],[3.7/2, 3.3/2]]
-eightlayer = [[1, -500],[226.6, 235.5],[3.9/2, 5.27/2]]
-tenlayer = [1, 227.6, 3.6/2]
+sixlayer = [[1, -500, -1000],[234, 244, 250.56],[3.7/2, 3.3/2, 5.27/2]]
+eightlayer = [[1, -500, -1000],[226.6, 235.5, 241],[3.9/2, 5.27/2, 3.0724/2]]
+tenlayer = [[1, -500, -1000], [227.6, 235.4, 240.46], [3.6/2, 2.6275/2, 2.32/2]]
 
 
 
@@ -52,7 +52,7 @@ plt.ylabel(r'Temperature (K) of $J_{het}=10^{24}$ s$^{-1}$m$^{-2}$')
 plt.grid(color='#d4d4d4', linestyle='--', linewidth=1)
 plt.legend(loc='lower left', ncol=1, fancybox=True, shadow=True)
 
-plt.savefig('confinement_slopes.png', dpi=1000)
+plt.savefig('confinement_all.png', dpi=1000)
 
 
 
