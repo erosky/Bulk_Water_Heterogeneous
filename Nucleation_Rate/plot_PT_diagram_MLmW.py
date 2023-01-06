@@ -134,13 +134,15 @@ ax2.plot(pressures, MLmW_dmelt, 'go', fillstyle='none', linewidth=1.0, label=r'$
 
 ax2.fill_between(pressures, MLmW_Jhigh, MLmW_Jlow, color='b', alpha=0.2)
 ax2.plot(pressures, MLmW_dJ, 'bo', fillstyle='none', linewidth=1.0, label=r'$J_{hom}=10^{32}$ m$^{-3}$s$^{-1}$ (Rosky 2022)')
-ax2.plot(pressures, MLmW_dJ_th, 'k--', linewidth=1.0)
+#ax2.plot(pressures, MLmW_dJ_th, 'k--', linewidth=1.0)
 ax2.fill_between(pressures, MLmW_het_Jhigh, MLmW_het_Jlow, color='r', alpha=0.2)
 ax2.plot([-100, -50, 1], MLmW_dJ_het, 'ro', linewidth=1.0, label=r'$J_{het}=10^{24}$ m$^{-2}$s$^{-1}$')
-ax2.plot(pressures, MLmW_het_th, 'k--', linewidth=1.0, label='Equation 1')
-ax2.plot(pressures, het_fit, 'r--', linewidth=1.0, label=r'$J_{het}$ fit')
-ax2.plot(pressures, het_hom_fit, 'b--', linewidth=1.0)
-ax2.plot(pressures, hom_fit, 'b--', linewidth=1.0, label=r'$J_{hom}$ fit')
+#ax2.plot(pressures, MLmW_het_th, 'k--', linewidth=1.0, label='Equation 1')
+#ax2.plot(pressures, het_fit, 'r--', linewidth=1.0, label=r'$J_{het}$ fit')
+ax2.plot(pressures, het_fit, 'r--', linewidth=1.0)
+#ax2.plot(pressures, het_hom_fit, 'b--', linewidth=1.0)
+#ax2.plot(pressures, hom_fit, 'b--', linewidth=1.0, label=r'$J_{hom}$ fit')
+ax2.plot(pressures, hom_fit, 'b--', linewidth=1.0)
 
 
 
@@ -192,6 +194,6 @@ ax2.plot((1 - d, 1 + d), (1 - d, 1 + d), **kwargs)  # bottom-right diagonal
 ax.set_title('Homogeneous and heterogeneous nucleation rate, MLmW')
 ax2.set_xlabel('Pressure (MPa)')
 ax2.set_ylabel(r'T - T$_{melt}$')
-plt.savefig('PT_diagram_MLmW_bounds.png', dpi=1000)
+plt.savefig('PT_diagram_MLmW_simple.png', dpi=1000)
 
 

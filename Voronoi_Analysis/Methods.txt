@@ -1,0 +1,33 @@
+Big picture goal:
+
+average volume of molecules as a function of distance from the substrate
+before and after freezing
+
+data will be in density as a distance from interface, d
+
+
+FOR ONE SNAPSHOT:
+
+Shells of 0.5 Angstroms (Malek)
+in each shell, count how many molecules center of mass is in the shell (N_shell)
+
+sum the voronoi volume of each of those molecules
+
+density for that shell in N/cubic angstrom is N_shell/Voronoi_sum
+
+------
+
+substrate top and bottom interface = s_top, s_bot
+
+for every atom in xyz file:
+	if (z_pos > s_top) then (d = z_pos - s_top)
+	if (z_pos < s_bot) then (d = s_bot - z_pos)
+	
+	* map d to the correct array index
+	N++ and Volume+V in the corresponding shell
+------
+
+
+FOR A COLLECTION OF SIMULATION RUNS:
+
+take the average density in each shell
