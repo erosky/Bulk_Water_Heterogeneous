@@ -20,7 +20,7 @@ limits_1 = [245, 220]
 limits_500 = [245, 220]
 limits_1000 = [245, 225]
 
-bin_width = 1 # width of temperature bins
+bin_width = 2 # width of temperature bins
 
 # create file for freezing temperatures in analysis folder
 # data: RUN TEMP
