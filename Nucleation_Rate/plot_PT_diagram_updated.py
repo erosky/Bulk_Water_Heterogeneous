@@ -6,7 +6,7 @@ from scipy.optimize import curve_fit
 
 pressures=[-100, -50, 1]
 pmin = -120.0
-pmax = 100.0
+pmax = 20.0
 P_range=np.arange(pmin, pmax, 5)
 
 
@@ -15,15 +15,6 @@ mW_dJ=[-64, -65.25, -67.5]
 mW_dJ_th=[-65.3, -66.4, -67.5]
 mW_melt=[275, 274, 273]
 mW_dmelt=[2, 1, 0]
-
-MLmW_J=[223.4, 219.6, 214.5]
-MLmW_dJ=[-68.6, -72.4, -77.5]
-MLmW_dJ_th=[-70.7, -74.1, -77.5]
-MLmW_melt=[298, 295, 292]
-MLmW_dmelt=[6, 3, 0]
-
-MLmW_Jhigh=[-64, -68, -72]
-MLmW_Jlow=[-75, -76, -80]
 
 
 # Heterogeneous Freezing lines of J=10^24
@@ -53,7 +44,69 @@ for i,t in enumerate(mW_dJ_het):
 	mW_het_Jlow.append(t - mW_het_dT[i]/2)
 
 
+# homogeneous error bounds
+mW_hom_Jhigh = []
+mW_hom_Jlow = []
+mW_hom_dT = [2.1, 1.9, 1.8]
+for i,t in enumerate(mW_dJ):
+	mW_hom_Jhigh.append(t + mW_hom_dT[i]/2)
+	mW_hom_Jlow.append(t - mW_hom_dT[i]/2)
+	
+	
+#################
+# Data best fits
+################
+def linear(x,a,b):
+	return a*x+b
 
+popt_hom, pcov_hom = curve_fit(linear, [-100, -50, 1], mW_dJ, sigma=[(mW_hom_Jhigh[0]-mW_hom_Jlow[0])/2, (mW_hom_Jhigh[1]-mW_hom_Jlow[1])/2, (mW_hom_Jhigh[2]-mW_hom_Jlow[2])/2])
+
+popt_het, pcov_het = curve_fit(linear, [-100, -50, 1], mW_dJ_het, sigma=mW_het_dT)
+
+
+het_fit = []
+for p in pressures:
+	het_fit.append(popt_het[0]*p+popt_het[1])
+	
+hom_fit = []
+for p in pressures:
+	hom_fit.append(popt_hom[0]*p+popt_hom[1])
+
+
+# best fit of our approximation (dT/dP = (Tm*dv)/lf)
+
+slope_estimate = -0.022 #K/MPa
+def intercept(x,b):
+	return slope_estimate*x+b
+	
+popt_icpt_het, pcov_icpt_het = curve_fit(intercept, [-100, -50, 1], mW_dJ_het, sigma=mW_het_dT)
+popt_icpt_hom, pcov_icpt_hom = curve_fit(intercept, [-100, -50, 1], mW_dJ, sigma=mW_hom_dT)
+
+estimate_fit_het = []
+estimate_fit_hom = []
+for p in pressures:
+	estimate_fit_het.append(slope_estimate*p+popt_icpt_het[0])
+	estimate_fit_hom.append(slope_estimate*p+popt_icpt_hom[0])
+
+
+# best fit of melting line
+popt_melt, pcov_melt = curve_fit(linear, [-100, -50, 1], mW_dmelt)
+
+
+melt_fit = []
+for p in pressures:
+	melt_fit.append(popt_melt[0]*p+popt_melt[1])
+
+
+print (popt_icpt_het, pcov_icpt_het)
+print (popt_icpt_hom, pcov_icpt_hom)
+
+print (popt_hom, pcov_hom)
+print (popt_het, pcov_het)
+
+print (popt_melt, pcov_melt)
+	
+	
 
 
 #--------------------
@@ -66,43 +119,15 @@ def Mar_T(P):
 
 
 
-plt.title('Melting Point, Homogeneous Freezing, and Heterogeneous Freezing Curves')
-plt.xlabel('Pressure (MPa)')
-plt.ylabel(r'Degrees K from 0 MPa $T_{melt}$')
-
-
-plt.hlines(0, pmin, pmax, colors=['k'])
-plt.text(-115, -3, r'$T_{melt}$ at 0 MPa')
-
-plt.plot(P_range, Mar_T(P_range)-273, '#707070', label=r'$T_{melt}$ Marcolli')
-#plt.plot(P_range, Mar_T(P_range+307)-273, '#adadad', label=r'$J=10^8$ Marcolli')
-
-
-'''
-plt.plot(pressures, MLmW_dmelt, 'go', linewidth=1.0, label=r'MLmW $T_{melt}$')
-plt.plot(pressures, MLmW_dJ, '^g', linewidth=1.0, label=r'MLmW $J=10^{32} m^{-3}s^{-1}$')
-'''
-
-plt.plot(pressures, mW_dmelt,'bo', linewidth=1.0, label=r'mW $T_{melt}$')
-plt.plot(pressures, mW_dJ,'^b', linewidth=1.0, label=r'mW $J=10^{32} m^{-3}s^{-1}$')
-
-
-plt.xlim(pmin, pmax)
-plt.legend(loc='lower right')
-plt.grid(color='#d4d4d4', linestyle='--', linewidth=1)
-
-plt.tight_layout()
-plt.savefig('plot_PT_delta_mW.png', dpi=300)
-
-
 #--------------------
 # Break y-axis
 
 f, (ax, ax2) = plt.subplots(2, 1, sharex=True)
+f.set(figwidth=5, figheight=6)
 
 # plot melting data on both axis
 ax.hlines(0, pmin, pmax, colors=['k'])
-ax.text(-115, -3, r'$T_{melt}$ at 0 MPa')
+ax.text(pmin+5, -1.5, r'$T_{melt}$ at 0 MPa')
 
 ax.plot(P_range, Mar_T(P_range)-273, '#707070')
 ax.plot(pressures, mW_dmelt,'go', fillstyle='none', linewidth=1.0)
@@ -117,12 +142,24 @@ ax2.plot(pressures, mW_dmelt,'go', fillstyle='none', linewidth=1.0, label=r'$T_{
 
 #--- freezing data
 
-ax2.plot(pressures, mW_dJ_th,'b--', linewidth=1.5)
+# homogeneous
+ax2.fill_between(pressures, mW_hom_Jhigh, mW_hom_Jlow, color='b', alpha=0.2)
 ax2.plot(pressures, mW_dJ,'bo', fillstyle='none', linewidth=1.0, label=r'$J_{hom}=10^{32}$ m$^{-3}$s$^{-1}$ (Rosky 2022)')
+ax2.plot(pressures, estimate_fit_hom, 'b--', linewidth=1.0)
+
+
+
+#heterogeneous
 ax2.fill_between(pressures, mW_het_Jhigh, mW_het_Jlow, color='r', alpha=0.2)
 ax2.plot(pressures, mW_dJ_het, 'ro', linewidth=1.0, label=r'$J_{het}=10^{24}$ m$^{-2}$s$^{-1}$')
-ax2.plot(pressures, mW_het_th,'r--', linewidth=1.5, label='Equation 1')
+ax2.plot(pressures, estimate_fit_het, 'r--', linewidth=1.0)
+#ax2.plot(pressures, mW_het_th,'r--', linewidth=1.0, label='Equation 1')
 
+
+
+# plot best fit lines
+ax2.plot(pressures, het_fit, 'r-', linewidth=1.0)
+ax2.plot(pressures, hom_fit, 'b-', linewidth=1.0)
 
 
 
@@ -138,12 +175,12 @@ ax2.plot(pressures, MLmW_dJ_th, 'g--', linewidth=1.5, label='Equation 1')
 
 
 # zoom-in / limit the view to different portions of the data
-ax.set_ylim(-5., 10.)  # melting 
-ax2.set_ylim(-75., -50.)  # homogeneous freezing
+ax.set_ylim(-3., 10.)  # melting 
+ax2.set_ylim(-85., -40.)  # homogeneous freezing
 
-ax.set_xlim(pmin, pmax+20)
-ax2.set_xlim(pmin, pmax+20)
-ax2.legend(loc='lower right', fontsize='small')
+ax.set_xlim(pmin, pmax+5)
+ax2.set_xlim(pmin, pmax+5)
+#ax2.legend(loc='lower right', fontsize='small')
 
 # hide the spines between ax and ax2
 ax.spines['bottom'].set_visible(False)
@@ -178,9 +215,9 @@ ax2.plot((1 - d, 1 + d), (1 - d, 1 + d), **kwargs)  # bottom-right diagonal
 # the diagonal lines will move accordingly, and stay right at the tips
 # of the spines they are 'breaking'
 
-ax.set_title('Homogeneous and heterogeneous nucleation rate, mW')
+ax.set_title('mW')
 ax2.set_xlabel('Pressure (MPa)')
 ax2.set_ylabel(r'T - T$_{melt}$')
-plt.savefig('PT_diagram_mW_bounds.png', dpi=300)
+plt.savefig('PT_diagram_mW_clean.png', dpi=1000)
 
 

@@ -1,0 +1,24 @@
+go to each log file
+- extract from each log file just the data lines at the beginning of simulation
+- extract from each log file just the data lines at the end of simulation
+
+for each run:
+- get average volume at beginning and end of simulation
+- convert to N/volume
+- then convert to g/cm^3
+
+
+
+
+A=value in g/cm^3
+then value in cm^3/mol = (1/A)*18.015
+
+# Unit conversion function
+atoms = 4096
+mass_atom = 18.015/(6.02214*(10**23))
+timestep = 5
+def real2SI(metric, value):
+	converted = 0
+	# Convert from number density to g/cm^3
+	if (metric == "density"):
+		converted = (value * mass_atom / (10**-8)**3)

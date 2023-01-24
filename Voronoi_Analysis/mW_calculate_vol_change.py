@@ -8,15 +8,36 @@ from scipy import constants
 s_top = 25+10.062
 s_bot = 25
 
-d_min = 3.2
-d_max = 6.9
+#d_min = 3.2
+#d_max = 6.9
+
+d_min = 7.0
+d_max = 20
 
 
-(liq_N, liq_V) = (0, 0)
-(ice_N, ice_V) = (0, 0)
+
+
+# conversion to cm^3 mol^(−1)
+# current data is N/A^3
+
+def convert(N, V):
+	mol = N/constants.N_A
+	cm_cubed = V*(1e-24)
+	cm_per_mol = cm_cubed/mol
+	return (cm_per_mol)
+
+
+## Test sum of entire box
+liq_sum = 0
+ice_sum = 0
+liq_N_runs = 0
+ice_N_runs = 0
 
 
 for r in np.arange(0,800+200,200):
+	liq_N_runs = liq_N_runs + 1
+
+	(liq_N, liq_V) = (0, 0)
 	
 	data_file = f"mW_1atm/liquid/liquid_{r}.xyz"
 	data = np.loadtxt(data_file)
@@ -35,9 +56,16 @@ for r in np.arange(0,800+200,200):
 		if ((d <= d_max) and (d >= d_min)):
 			liq_N = liq_N+1
 			liq_V = liq_V + v[i]
+	
+	r_mol_volume = convert(liq_N, liq_V)
+	liq_sum = liq_sum + r_mol_volume
+	
 
 
 for r in np.arange(5000,6000+250,250):
+	ice_N_runs = ice_N_runs + 1
+	
+	(ice_N, ice_V) = (0, 0)
 	
 	data_file = f"mW_1atm/ice/ice_{r}.xyz"
 	data = np.loadtxt(data_file)
@@ -56,23 +84,15 @@ for r in np.arange(5000,6000+250,250):
 		if ((d <= d_max) and (d >= d_min)):
 			ice_N = ice_N+1
 			ice_V = ice_V + v[i]
+			
+	r_mol_volume = convert(ice_N, ice_V)
+	ice_sum = ice_sum + r_mol_volume
 
-print (liq_N, liq_V, ice_N, ice_V)
 
+liq_v = liq_sum/liq_N_runs
+ice_v = ice_sum/ice_N_runs
 
-#conversion to cm^3 mol^(−1)
+print (liq_v, ice_v, liq_v-ice_v)
 
-# current data is N/A^3
-
-def convert(N, V):
-	mol = N/constants.N_A
-	cm_cubed = V*(1e-24)
-	cm_per_mol = cm_cubed/mol
-	return (cm_per_mol)
-	
-liq_v = convert(liq_N, liq_V)
-ice_v = convert(ice_N, ice_V)
-
-print (liq_v-ice_v)
 
 

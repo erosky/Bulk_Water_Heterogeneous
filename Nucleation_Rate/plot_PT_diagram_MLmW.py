@@ -6,7 +6,7 @@ from scipy.optimize import curve_fit
 
 pressures=[-100, -50, 1]
 pmin = -120.0
-pmax = 120.0
+pmax = 20.0
 P_range=np.arange(pmin, pmax, 5)
 
 
@@ -146,16 +146,17 @@ plt.savefig('plot_PT_delta_MLmW.png', dpi=300)
 # Break y-axis
 
 f, (ax, ax2) = plt.subplots(2, 1, sharex=True)
+f.set(figwidth=5, figheight=6)
 
 # plot melting data on both axis
 ax.hlines(0, pmin, pmax, colors=['k'])
-ax.text(-115, -3, r'$T_{melt}$ at 0 MPa')
+ax.text(pmin+5, -1.5, r'$T_{melt}$ at 0 MPa')
 
-ax.plot(P_range, Mar_T(P_range)-273, '#707070', label=r'$T_{melt}$ from experiments (Marcolli 2017)')
-ax.plot(pressures, MLmW_dmelt, 'go', fillstyle='none', linewidth=1.0, label=r'$T_{melt}$ (Rosky 2022)')
+ax.plot(P_range, Mar_T(P_range)-273, '#707070', label=r'$T_{melt}$ from experiments (Marcolli, 2017)')
+ax.plot(pressures, MLmW_dmelt, 'go', fillstyle='none', linewidth=1.0, label=r'$T_{melt}$ (Rosky et al., 2022)')
 #ax.plot(pressures, melt_fit, 'g-', linewidth=1.0)
 
-ax.plot(pressures, MLmW_dJ, 'bo', fillstyle='none', linewidth=1.0, label=r'$J_{hom}=10^{32}$ m$^{-3}$s$^{-1}$ (Rosky 2022)')
+ax.plot(pressures, MLmW_dJ, 'bo', fillstyle='none', linewidth=1.0, label=r'$J_{hom}=10^{32}$ m$^{-3}$s$^{-1}$ (Rosky et al., 2022)')
 ax.plot([-100, -50, 1], MLmW_dJ_het, 'ro', linewidth=1.0, label=r'$J_{het}=10^{24}$ m$^{-2}$s$^{-1}$')
 
 # plot all data on second axis
@@ -196,17 +197,18 @@ textstr = '\n'.join((
     r'solid lines = best fit to data'))
 
 # place a text box in upper left in axes coords
-ax2.text(30, -72, textstr, fontsize='small',
-        verticalalignment='top', bbox=props)
+#ax2.text(30, -72, textstr, fontsize='small', verticalalignment='top', bbox=props)
+        
+
 
 
 # zoom-in / limit the view to different portions of the data
-ax.set_ylim(-5., 10.)  # melting 
+ax.set_ylim(-3., 10.)  # melting 
 ax2.set_ylim(-85., -40.)  # homogeneous freezing
 
 ax.set_xlim(pmin, pmax+5)
 ax2.set_xlim(pmin, pmax+5)
-ax.legend(loc='upper right', fontsize='small')
+#ax.legend(loc='upper right', fontsize='small')
 
 # hide the spines between ax and ax2
 ax.spines['bottom'].set_visible(False)
@@ -241,9 +243,20 @@ ax2.plot((1 - d, 1 + d), (1 - d, 1 + d), **kwargs)  # bottom-right diagonal
 # the diagonal lines will move accordingly, and stay right at the tips
 # of the spines they are 'breaking'
 
-ax.set_title('Homogeneous and heterogeneous nucleation rate, MLmW')
+ax.set_title('MLmW')
 ax2.set_xlabel('Pressure (MPa)')
 ax2.set_ylabel(r'T - T$_{melt}$')
-plt.savefig('PT_diagram_MLmW_publication.png', dpi=1000)
+
+'''
+## get legend by itself
+# Shrink current axis by 20%
+box = ax.get_position()
+ax.set_position([box.x0, box.y0, box.width * 0.1, box.height])
+
+# Put a legend to the right of the current axis
+ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
+'''
+
+plt.savefig('PT_diagram_MLmW_legend2.png', dpi=1000)
 
 
