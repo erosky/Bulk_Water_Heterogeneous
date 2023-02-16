@@ -193,11 +193,11 @@ ax2.plot(pressures, hom_fit, 'b-', linewidth=1.0)
 # Add text box to explain dashed and solid lines
 props = dict(boxstyle='round', facecolor='white', alpha=1.0, edgecolor='#d4d4d4', pad=0.7)
 textstr = '\n'.join((
-    r'dashed lines = Equation 1',
+    r'dashed lines = Equation (1)',
     r'solid lines = best fit to data'))
 
 # place a text box in upper left in axes coords
-#ax2.text(30, -72, textstr, fontsize='small', verticalalignment='top', bbox=props)
+#ax2.text(-50, -42, textstr, fontsize='small', verticalalignment='top', bbox=props)
         
 
 
@@ -252,10 +252,11 @@ ax2.set_ylabel(r'T - T$_{melt}$')
 # Shrink current axis by 20%
 box = ax.get_position()
 ax.set_position([box.x0, box.y0, box.width * 0.1, box.height])
+'''
 
 # Put a legend to the right of the current axis
 ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
-'''
+
 
 plt.savefig('PT_diagram_MLmW_legend2.png', dpi=1000)
 

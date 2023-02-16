@@ -1,0 +1,116 @@
+# Import water capillary moleculular setup.
+# Equilibrate water at the starting temperature.
+# Cool capillary at a constant cooling rate of 0.25 K/ns.
+# Ice nucleation will occur within the capillary bridge at some point during the cooling process.
+#
+# Notes:
+# SEED is a random number that will need to be changed for each simulation run.
+# DIR will determine which directory the output files are saved into.
+# The input capillary data file and potential file (MLC_e.sw) need to be in the same directory as this input file
+#
+# Run simulation in lammps with the following command (example):
+# mpirun ~/lammps/src/lmp_mpi -in in.capillary_cooling
+#
+# Script written by Elise Rosky
+# Last modified Feb 14, 2023
+
+
+
+
+variable            SEED string 18580
+variable            NAME string capillary_cooling_0
+variable            DIR string run_0
+variable            PRES string 1
+variable            START_TEMP string 240
+variable            END_TEMP string 227
+variable            STEPS string 5200000
+variable            TCOUPL string 5000.0
+variable            PCOUPL string 10000.0
+variable            TDAMP string 1000.0
+variable            PDAMP string 2500.0
+
+units	   	    real
+atom_style 	    atomic
+log		    ${DIR}/log.eq_${NAME}
+
+
+### IMPORT ATOMS ###
+# modify the input data file below for different capillary bridge heights
+# examples:
+# read_data data.capillary_30A_240K
+# read_data data.capillary_18A_240K
+
+read_data data.capillary_24A_240K
+group water type 2
+group substrate type 1
+
+
+## Define water-substrate interaction potential ##
+#
+pair_style          sw
+pair_coeff * * MLC_e.sw C mW
+
+
+## Add velocity/set timestep: set substrate molecules to be motionless, set water molecules at the starting temperature
+#
+
+fix		1 substrate setforce 0.0 0.0 0.0
+velocity 	substrate set 0.0 0.0 0.0
+velocity        water create ${START_TEMP} ${SEED} rot yes dist gaussian
+timestep        5.0
+
+
+# Define outputs: mean square displacement, water temperature, order parameters, water center of mass
+#
+compute 1 water msd
+compute 2 water temp
+compute 3 all orientorder/atom nnn NULL cutoff 3.5
+compute 4 water com
+
+thermo	            100
+thermo_style custom step c_2 press vol etotal ke pe c_1[4] density
+
+
+# Neighbor lists
+#
+neigh_modify        delay 0 every 1 check yes
+
+
+# Set fixes
+#
+fix                 2 water momentum 10 linear 1 1 1 rescale
+fix                 3 all nve
+fix                 4 water temp/csvr ${START_TEMP} ${START_TEMP} 500.0 928347
+
+
+# Run 0.05 ns equilibration
+#
+dump                1 all custom 100 ${DIR}/eq.${NAME}.dump id type x y z vx vy vz
+run                 10000
+write_data 	    ${DIR}/data.${NAME}_eq
+
+undump              1
+unfix               4
+
+
+
+################################################
+#######         Run Simulation         #########
+################################################  
+
+reset_timestep      0
+timestep	    10.0
+log                 ${DIR}/log.run_${NAME}
+
+
+# Set production fixes - Nose/Hoover
+#
+fix                 4 water temp/csvr ${START_TEMP} ${END_TEMP} 500.0 928347
+
+
+# Run simulation
+thermo_style        custom step c_2 press vol etotal ke pe c_1[4] c_4[*]
+thermo              200
+dump		     1 water custom 400 ${DIR}/prod.${NAME}.dump id type x y z vx vy vz c_3[*]
+run                 ${STEPS}
+write_data 	     ${DIR}/data.${NAME}_run
