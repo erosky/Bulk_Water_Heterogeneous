@@ -45,7 +45,7 @@ log				${DIR}/log.eq_${NAME}
 
 read_data data.ML_substrate_1atm_240K
 group water type 1
-group graphite type 2
+group substrate type 2
 
 
 ## Define interaction potential
@@ -56,8 +56,8 @@ pair_coeff * * MLC_e.sw mW C
 
 ## Fix substrate atoms in place
 
-fix 5 graphite setforce 0.0 0.0 0.0
-velocity graphite set 0.0 0.0 0.0
+fix 5 substrate setforce 0.0 0.0 0.0
+velocity substrate set 0.0 0.0 0.0
 
 
 ## Equilibration of water molecules ##
@@ -111,7 +111,7 @@ timestep	    10.0
 
 compute			2 water orientorder/atom nnn NULL cutoff 3.5
 dump		    1 water custom 1000 ${DIR}/prod.water.${NAME}-${TEMP}-${END_TEMP}.dump id type x y z vx vy vz c_2[*]
-dump		    2 graphite custom 1000 ${DIR}/prod.graphite.${NAME}-${TEMP}-${END_TEMP}.dump id type x y z vx vy vz c_2[*]
+dump		    2 substrate custom 1000 ${DIR}/prod.substrate.${NAME}-${TEMP}-${END_TEMP}.dump id type x y z vx vy vz c_2[*]
 
 # Set production fixes
 

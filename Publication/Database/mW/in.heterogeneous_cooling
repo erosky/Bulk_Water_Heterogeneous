@@ -1,13 +1,28 @@
-# Simulation of monatomic water on a graphite substrate
-# load in conifguration
-# set inital velocities at 225 K
-# cool the water at a rate of 0.25 K/ns
-# ending temperature at 205 K
-# Real units, atomic atom style (no bonded interactions)
+# Simulation of monatomic water in contact with a flat hydrophilic substrate.
+# Load in molecular configuration.
+# Equilibrate the water at the starting temperature.
+# Cool the water at a rate of 0.25 K/ns.
+# Ice nucleation will occur within the capillary bridge at some point during the cooling process.
+#
+# Notes:
+# SEED is a random number that will need to be changed for each simulation run.
+# DIR will determine which directory the output files are saved into.
+# Adjust the value of PRES to change the pressure in the simulation (ex. 1, -500, -1000)
+#
+# The number of STEPS must match the START and END TEMP to ensure the proper cooling rate.
+# e.g. 2000000 steps per 5K of cooling
+#
+# The input capillary data file and potential file (MLC_e.sw) need to be in the same directory as this input file
+#
+# Run simulation in lammps with the following command (example):
+# mpirun ~/lammps/src/lmp_mpi -in in.heterogeneous_cooling
+#
+# Script written by Elise Rosky
+# Last modified Feb 14, 2023
 
 variable        SEED string 25268
-variable        NAME string het_freeze_test
-variable        DIR string test_2
+variable        NAME string het_freeze_0
+variable        DIR string run_0
 variable        TEMP string 225
 variable        END_TEMP string 205
 variable        STEPS string 8000000
@@ -19,25 +34,28 @@ units	   	    real
 atom_style 	    atomic
 log				${DIR}/log.eq_${NAME}
 
-# Create simulation box and atoms
+## IMPORT INPUT MOLECULES APPROPRIATE FOR THE PRESSURE SETTING
+# read_data data.mW_graphite_m500atm
+# read_data data.mW_graphite_m1000atm
 
-read_data data.graphite_substrate
+read_data data.mW_graphite_1atm
 group water type 1
 group graphite type 2
 
-# Define potential
+
+## Define potential
 
 pair_style sw
 pair_coeff * * mWC.sw mW C
 
 
-# Fix graphite atoms in place
+## Fix graphite atoms in place
 
 fix 5 graphite setforce 0.0 0.0 0.0
 velocity graphite set 0.0 0.0 0.0
 
 
-# Equilibration of molecular water
+## Equilibration of molecular water ##
 
 # Add velocity/set timestep
 
@@ -97,7 +115,7 @@ dump		    2 graphite custom 1000 ${DIR}/prod.graphite.${NAME}-${TEMP}-${END_TEMP
 fix             2 water nph iso ${PRES} ${PRES} ${PCOUPL} 
 fix             3 water temp/csvr ${TEMP} ${END_TEMP} ${TCOUPL} ${SEED}
 
-# Run 60 ns simulation
+# Run simulation
 
 run	            ${STEPS}
 write_data		${DIR}/data.end-${NAME}-${TEMP}-${END_TEMP}
