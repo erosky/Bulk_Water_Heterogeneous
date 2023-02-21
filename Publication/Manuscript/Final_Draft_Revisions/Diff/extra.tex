@@ -1,0 +1,36 @@
+Jhet will occur at a higher temperature when the water is at negative pressures (under tension).
+
+We simulate heterogeneous freezing of coarse grained water models on a hydrophilic substrate that has
+similar structure to graphite, and a contact angle of approximately 50 degrees.  Two methods
+of applying negative pressure are implemented. The first method uses a barostat to explicitly set the pressure,
+and the second methods uses capillary water bridges of varying heights to create negative Laplace pressure.
+Namely, it seems that the value of deltaV or Lf may be slightly different for the heterogeneous case as
+compared to the homogeneous case; but the assumption of linearity still holds quite well, indicating that fhet is
+not strongly pressure dependent.
+Several configurations of heterogeneous ice nucleation on the substrate are used to identify any change in
+nucleation rate due to spatial confinement of the water within nano-scale geometries. We find that in capillary
+heights smaller than 24 Angstroms there is a significant influence on nucleation rate due to confinement effects.
+1Additionally, we find that the interface between water and the surrounding vacuum (the vapor-water interface)
+of the capillary bridge exerts a significant suppression of ice nucleation. No ice nucleation events occur within
+10 Angstroms of the water-vapor interface.
+
+
+The trend of ice nucleation occurring at higher temperatures when negative pressure (tension) is present in supercooled water has not yet been measured experimentally at the time of this publication, and simulation studies are somewhat limited.  Kanno has measured freezing temps for postitve pressures, bianco et al explores homogeneous ice nucleation simulated at deeply  negative pressures, Li et al simulated the effect of positive laplace pressure on freezng of nano-droplets. 
+The entirety of the previously mentioned simulation studies address homogeneous ice nucleation (ice formation within pure water).
+
+Better constraints on this process allow for improved cloud and climate model parameterization and a more complete physical understanding of cloud physics. 
+
+The total surface area of the capillary bridge contact with the substrate fluctuates throughout a simulation by an average standard deviation of 46 square Angstroms, a magnitude which is negligible to our calculation of nucleation rate coefficient. 
+
+Additionally, the dependence on these values with contact angle is an interesting topic for future study. Our data indicate that the contact angle and the compatability function are not a function of pressure and temperature, but that the thermodynamic values $l_f$, $\Delta v_{ls}$ may be a function of contact angle.
+
+An interesting result is that since the cosine term which depends on contact angle has a maximum value of 1, this means that the maximum slope of constant nucleation rate lines is given by the expression $\left[\frac{-2 \Delta \nu T_m \sigma}{l_f}\right]$. This provides an upper limit on the magnitude of temperature increase that a nucleation rate can achieve for any given negative pressure.
+
+
+Long abstract: 
+Thermodynamics dictates that homogeneous ice nucleation rates occur at higher temperatures when water is under tension, otherwise referred to as negative pressure. If also true for heterogeneous ice nucleation rates, then this phenomenon can result in higher heterogeneous freezing temperatures in water capillary bridges, pores, and other geometries where water is subjected to negative Laplace pressure. Using a molecular model of water freezing on a hydrophilic substrate, heterogeneous ice nucleation rates are shown to exhibit a similar temperature increase at negative pressures as homogeneous ice nucleation. For negative pressures ranging from from 1 atm to $-1000$ atm, the simulations reveal that the freezing temperature corresponding to the heterogeneous nucleation rate coefficient $j_{het}(P,T)$ (m$^{-2}$ s$^{-1}$) increases linearly as a function of negative pressure, and with a slope approximately consistent with the prediction $\Delta T / \Delta P = \Delta T_m \Delta \nu_{ls} / l_f$, where $T_m$ is the melting temperature, $\Delta \nu_{ls}$ is the water-ice density anomaly, and $l_f$ is the latent heat of fusion, all at 1 atm.
+
+Simulations of water in capillary bridges confirm that the negative Laplace pressure within the water corresponds to an increase in heterogeneous freezing temperature. The freezing temperature in the water capillary bridges increases linearly with inverse capillary height ($1/h$). Varying the height and width of the capillary bridge reveals the role
+of geometrical factors in heterogeneous ice nucleation. When substrate surfaces are separated by less than approximately $h$=20 \AA{} the nucleation rate is enhanced and when the width of the capillary bridge is less than approximately 30 \AA{} the nucleation rate is suppressed. Ice nucleation does not occur in the region within 10 \AA{} of the air-water interface and shows a preference for nucleation in the region just beyond 10 \AA{}.
+
+These results help unify multiple lines of experimental evidence for enhanced nucleation rates due to reduced pressure, either resulting from geometry (Laplace pressure) or mechanical disruption of water droplets. This concept is relevant to the phenomenon of contact nucleation and could potentially play a role in a number of different heterogeneous nucleation mechanisms. 
