@@ -1,4 +1,4 @@
-\begin{thebibliography}{63}
+\begin{thebibliography}{65}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{\tt #1}}
 \providecommand{\urlprefix}{URL }
@@ -146,6 +146,11 @@ James, R.~L., Phillips, V. T.~J., and Connolly, P.~J.: Secondary ice production
   Atmospheric Chemistry and Physics, 21, 18\,519--18\,530,
   \doi{10.5194/acp-21-18519-2021}, 2021.
 
+\bibitem[{Kanno et~al.(1975)Kanno, Speedy, and Angell}]{kanno1975}
+Kanno, H., Speedy, R.~J., and Angell, C.~A.: Supercooling of Water to
+  -92\&\#xb0;C Under Pressure, Science, 189, 880--881,
+  \doi{10.1126/science.189.4206.880}, 1975.
+
 \bibitem[{Klumpp et~al.(2023)Klumpp, Marcolli, Alonso-Hellweg, Dreimol, and
   Peter}]{klumpp2023comparing}
 Klumpp, K., Marcolli, C., Alonso-Hellweg, A., Dreimol, C.~H., and Peter, T.:
@@ -192,6 +197,10 @@ Li, T., Donadio, D., Ghiringhelli, L.~M., and Galli, G.: Surface-induced
 Li, T., Donadio, D., Russo, G., and Galli, G.: Homogeneous ice nucleation from
   supercooled water, Phys. Chem. Chem. Phys., 13, 19\,807--19\,813,
   \doi{10.1039/C1CP22167A}, 2011.
+
+\bibitem[{Li et~al.(2013)Li, Donadio, and Galli}]{Li2013}
+Li, T., Donadio, D., and Galli, G.: Ice nucleation at the nanoscale probes no
+  man’s land of water, Nature Communications, 4, 1--6, 2013.
 
 \bibitem[{Lintunen et~al.(2013)Lintunen, H{\"o}ltt{\"a}, and
   Kulmala}]{lintunen2013anatomical}
