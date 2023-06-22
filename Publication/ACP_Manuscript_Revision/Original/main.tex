@@ -1,0 +1,357 @@
+% \documentclass[letterpaper]{article}
+% \usepackage[english]{babel}
+% \usepackage[utf8]{inputenc}
+% \usepackage[top=1.2in, left=0.9in, bottom=1.2in, right=0.9in]{geometry} % sets the margins
+% \usepackage{amsmath,amsthm,amssymb}
+% \usepackage{url} % fixes url problem
+% \usepackage{csquotes}% Recommended
+% \usepackage[doublespacing]{setspace} % turns on double spacing
+% \usepackage{multirow}
+% \usepackage{caption}
+% \usepackage{subcaption}
+% \captionsetup{compatibility=false}
+% \usepackage{graphicx}
+% \usepackage[table]{xcolor}
+
+% \bibliographystyle{abbrv}
+
+% Adding commands for Atmospheric Chemistry and Physics here
+\documentclass[journal abbreviation, manuscript]{copernicus}
+
+\begin{document}
+
+\title{Molecular simulations reveal that heterogeneous ice nucleation occurs at higher temperatures in water under capillary tension}
+% Molecular simulations quantify the increase of heterogeneous ice nucleation temperature in water under capillary tension
+
+
+% \author{Elise Rosky, Will Cantrell, Tianshu Li, Issei Nakamura, Raymond A. Shaw}
+% \date{\today}
+
+\Author[1]{Elise}{Rosky}
+\Author[1]{Will}{Cantrell}
+\Author[2]{Tianshu}{Li}
+\Author[1]{Issei}{Nakamura}
+\Author[1]{Raymond A.}{Shaw}
+
+\affil[1]{Department of Physics, Michigan Technological University, Houghton, MI, USA}
+\affil[2]{Department of Civil \& Environmental Engineering, George Washington University, Washington, DC, USA}
+
+\correspondence{Elise Rosky (emrosky@mtu.edu)}
+
+\runningtitle{Heterogeneous ice nucleation in water under capillary tension}
+
+\runningauthor{Rosky et al.}
+
+
+\received{}
+\pubdiscuss{} %% only important for two-stage journals
+\revised{}
+\accepted{}
+\published{}
+
+%% These dates will be inserted by Copernicus Publications during the typesetting process.
+
+
+\firstpage{1}
+
+\maketitle
+
+%\begin{document}
+%\maketitle
+
+%\section{Abstract}
+
+\begin{abstract}
+%  After a brief introduction of the topic, the summary recapitulates the key points of the article and mentions possible directions for prospective research. 
+
+Homogeneous ice nucleation rates occur at higher temperatures when water is under tension, otherwise referred to as negative pressure. If also true for heterogeneous ice nucleation rates, then this phenomenon can result in higher heterogeneous freezing temperatures in water capillary bridges, pores, and other geometries where water is subjected to negative Laplace pressure. Using a molecular model of water freezing on a hydrophilic substrate, it is found that heterogeneous ice nucleation rates exhibit a similar temperature increase at negative pressures as homogeneous ice nucleation. For pressures ranging from from 1 atm to $-1000$ atm, the simulations reveal that the temperature corresponding to the heterogeneous nucleation rate coefficient $j_{het}$ (m$^{-2}$ s$^{-1}$) increases linearly as a function of negative pressure, with a slope that can be approximately predicted by the water density anomaly and the latent heat of fusion at atmospheric pressure.
+
+Simulations of water in capillary bridges confirm that negative Laplace pressure within the water corresponds to an increase in heterogeneous freezing temperature. The freezing temperature in the water capillary bridges increases linearly with inverse capillary height ($1/h$). Varying the height and width of the capillary bridge reveals the role of geometric factors in heterogeneous ice nucleation. When substrate surfaces are separated by less than approximately $h$ = 20 \AA{} the nucleation rate is enhanced and when the width of the capillary bridge is less than approximately 30 \AA{} the nucleation rate is suppressed. Ice nucleation does not occur in the region within 10 \AA{} of the air-water interface and shows a preference for nucleation in the region just beyond 10 \AA{}.
+
+These results help unify multiple lines of experimental evidence for enhanced nucleation rates due to reduced pressure, either resulting from surface geometry (Laplace pressure) or mechanical agitation of water droplets. This concept is relevant to the phenomenon of contact nucleation and could potentially play a role in a number of different heterogeneous nucleation or secondary ice mechanisms. 
+
+%"In the context of atmospheric ice-nucleating particles, our results strongly support the experimental evidence for the importance of surface features and dynamic processes that can initiate ice nucleation at low supercooling."
+% disclaimer the structure of the above sentence is extremely similar and arguably plaigerized from the abstract of Roudsari et al. 2022 (https://doi.org/10.5194/acp-22-10099-2022)
+% I just really like how they stated it and think we could add a similar statement of relevance to atmospheric INP.
+\end{abstract}
+
+
+%\section{Introduction}
+\introduction
+
+Heterogeneous freezing of water occurs when a substrate or material in contact with water catalyzes the formation of ice. The heterogeneous ice nucleation rate coefficient, referred to in this paper as the intensive nucleation rate $j_{het}$, describes the number of ice nucleation events per unit area of substrate per unit time (m$^{-2}$ s$^{-1}$). It is commonly recognized that $j_{het}$ is temperature dependent, with increasing probability of nucleation as temperature is decreased. Meanwhile, less attention has been given to the pressure dependence of $j_{het}$, which will be the focus of this study. Negative pressure in water is prevalent throughout nature, occurring in tree xylem \citep{jacobsen2007xylem}, in water capillary bridges in soil \citep{seiphoori2020}, and within nano-sized pores on atmospheric ice nucleating particles \citep{david2020role,marcolli2020technical,klumpp2023comparing}. Negative Laplace pressure, given by $\Delta P \approx \sigma_{lv}/2r$, where $\sigma_{lv} \approx 0.7$ J m$^{-2}$ is the liquid-vapor surface tension of water, becomes significant for nucleation when the air-water interface radius of curvature $r$ is on the order of nanometers, leading to negative pressures of order 100s of atmospheres. Thus, in this work we explore atmospherically-relevant negative pressures down to $-1000$ atm. %These nanometer length scales are essential to processes such as the condensation of water into pores in cirrus clouds \cite{robert2019} and may also be relevant to ice nucleation on atmospheric substrates as well.
+
+Recent experiments provide compelling evidence that dynamic or geometric factors can lead to enhancements of the nucleation rate independent of temperature. For example, it is widely known that contact between an ice-nucleating material and supercooled liquid leads to an increase in the freezing temperature compared to when the material is immersed \citep{pitter1973wind,levin1983contact,diehl2002ice}. Wetting of a small ice-nucleating particle at a water surface \citep{shaw2005} and roughening of a substrate \citep{gurganus2014nucleation} both have been observed to yield similar increases. Even contact with a soluble material not typically considered an ice nucleating particle can induce freezing \citep{niehaus2015}. It has been observed that ice nucleation is strongly enhanced when the three-phase contact line of a sessile drop distorts and moves over a substrate during electrowetting \citep{yang2015} or over a surface with pinning points \citep{yang2018}. One hypothesis that attempts to unify these diverse observations is that the curvature and/or stretching of the air-water interface produces negative Laplace pressure and tension within the water \citep{marcolli2017,yang2020}. 
+
+%There is evidence that negative pressure, also referred to as tension, increases ice nucleation rates in supercooled water. As hypothesized by Yang et al. (2018, 2020) and Marcolli (2017), this phenomenon could potentially explain laboratory results that show higher freezing temperatures in water droplets that are subjected to stretching and distorting of the droplet surface (the air-water interface) \cite{marcolli2017, yang2015,yang2018,niehaus2015,yang2020,shaw2005}. The curvature and stretching at the air-water interface is thought to produce negative Laplace pressure and tension within the water. 
+
+Our previous molecular dynamics simulations of ice nucleation within pure water (homogeneous ice nucleation) identified that homogeneous ice nucleation rates occur at higher temperatures due to negative pressure, with the increase in temperature $\Delta T$ resulting from a decrease in pressure $\Delta P$ described by the linear approximation \citep{rosky2022}
+
+\begin{equation} \label{eq:dTdP}
+    \Delta T = \frac{T_m \Delta \nu_{ls}}{l_f} \Delta P.
+\end{equation}
+
+\noindent The governing quantities are the equilibrium melting point ($T_m$), the molar-volume difference between liquid and solid water ($\Delta \nu_{ls}$), and the enthalpy of fusion (also known as latent heat, $l_f$) --- all evaluated at a reference pressure of 1 atmosphere. The molar volume difference between water and ice is negative, a property more commonly known as the water density anomaly. An increase in freezing temperature ($\Delta T > 0$) from a decrease in pressure ($\Delta P < 0$) is made possible by this property of water. A thorough derivation of Eq. (\ref{eq:dTdP}) can be found in the appendix of \citet{rosky2022}, using the pressure-dependent formulation of the solid-liquid chemical potential difference ($\mu$) formulated by \citet{nemec2013} combined with classical nucleation theory for $j_{hom}$ \citep[see also][]{yang2018}. According to this approximation, the slope of $\Delta T/\Delta P$ is parallel to the liquid-solid phase coexistence line, given by the Clapeyron equation. Detailed studies support that the slope of homogeneous freezing lines is not actually parallel to the melting point line \citep{bianco2021, espinosa2016}, but \citet{rosky2022} has shown that, as an approximation, it holds true for pressures ranging from 1 atm to -1000 atm. In the present study we ask: Does the heterogeneous ice nucleation rate follow a similar expression for pressure dependence as the homogeneous ice nucleation rate? And do simple geometric arrangements leading to negative Laplace pressure indeed result in similar behavior?
+
+The behavior of homogeneous ice nucleation at negative pressures has been the subject of investigation because of its relationship to the fundamental properties of water \citep[e.g.,][]{bianco2021}. By restricting the study to only the range of negative pressures thought to be relevant to the atmosphere, the previously-mentioned molecular simulations of \citet{rosky2022} were able to characterize a simpler (linear) behavior of homogeneous ice nucleation rate. Extending these studies to heterogeneous ice nucleation is an integral step towards applying these findings to physical situations. In particular, heterogeneous ice nucleation in atmospheric cloud droplets is of great interest because the majority of ice in the atmosphere forms via this mechanism \citep{cantrell2005production,hoose2012heterogeneous}. Heterogeneous ice nucleation rates determine the temperature at which primary ice particles form in clouds, which goes on to influence the cloud optical properties, lightning activity, and precipitation \citep{lamb2011physics}. 
+
+In this work we characterize the pressure dependence of intensive heterogeneous ice nucleation rates $j_{het}$ using a molecular model of water in contact with a hydrophilic substrate. In the first method of applying negative pressure we use a barostat to explicitly set the pressure. In the second method we use capillary water bridges of varying heights to create a range of negative Laplace pressures. We consider whether Eq. (\ref{eq:dTdP}) remains a valid description for the pressure dependence of heterogeneous ice nucleation. In addition to analyzing heterogeneous ice nucleation rates, we also explore the spatial distribution of ice nucleation events within the water capillary bridges to see where nucleation events occur relative to the substrate and the air-water interface. %This information reveals that all nucleation takes place between 3 to 7 \AA{} from the hydrophilic substrate. We also observe a trend of ice nucleation preferentially taking place at a certain distance from the water-vacuum interface.
+
+While our simulations do not attempt to represent any specific substrate or configuration found in atmospheric or experimental ice nucleation, our findings provide insight into the extent that capillary tension and surface curvature (e.g. due to mechanical agitation) can influence heterogeneous ice nucleation rates through Laplace pressure.  Additionally, the spatial locations of ice nucleation relative to the substrate and to the air-water interface inform us that these length scales must be taken into account when considering ice nucleation rate enhancement via this mechanism.
+
+
+
+% Talk about the equation that Janet Elliott 2021 has talked about regarding freezing point depression due to curved interface.
+
+% Talk about Marcolli discussion of pressure-depended ice nucleation parameterizations.
+
+% Some of the key physical factors at play with heterogeneous ice nucleation on the molecular scale. We aim to fill in more areas of uncertainty about the influence of interfaces with substrate and water surface geometry on ice nucleation rates. We study the effect that capillary water bridging has on ice nucleation rates within the water capillary bridge through negative laplace pressure.
+
+
+
+\section{Methods}
+
+Molecular dynamics (MD) simulations are carried out in LAMMPS \citep{plimpton1995} using the mW \citep{molinero2009} water model, and MLmW (Machine-Learning-mW) that has a more realistic water density anomaly \citep{chan2019}. All simulations employ periodic boundary conditions along the three spatial dimensions. To observe ice nucleation, we equilibrate the water at a supercooled temperature (240 K for MLmW and 225 K for mW, corresponding to 52 K and 48 K of supercooling respectively) and then cool the water at a constant rate of 0.25 K ns$^{-1}$ until ice forms. Ice is identified using the $q_6$ order parameter, where clusters of molecules with $q_6 > 0.54$ are considered to be ice \citep{steinhardt1983,lupi2014,rosky2022}. The cooling rate and substrate surface area used in this study allow us to observe intensive heterogeneous nucleation rates of order of magnitude $j_{het} = 10^{24}$ m$^{-2}$ s$^{-1}$. A timestep of 5 fs is used for all simulations.
+
+Intensive nucleation rates are found by running the same cooling simulation a minimum of 20 times and recording the freezing temperature of each cooling run. These repeated cooling runs form a statistical distribution of freezing temperatures that can be divided into temperature bins with a corresponding intensive nucleation rate, $j_{het}(T)$, within each bin. Calculation of intensive nucleation rate values for this process is described in \citet{rosky2022} using the methods of \citet{zobrist2007}. The width of the temperature bins are displayed as uncertainty bounds on our data points. As determined from Poisson statistics, we report with 99\% certainty that the intensive nucleation rates shown are contained within the bounds of the temperature bin. We reference Table 2 of \citet{koop1997} to obtain the 99\% upper and lower confidence bounds for the number of freezing events observed in each temperature bin.
+
+\begin{figure*}[t]
+\includegraphics[width=12cm]{figures/configurations.png}
+\caption{\label{fig:configurations} Heterogeneous ice nucleation simulation configurations with periodic boundary conditions employed along all three dimensions. Water molecules are cyan and the substrate material is brown. All configurations have the same total surface area of contact between water and substrate to within 6\%. (a) "Unconfined" water with a barostat. (b) Confined water with a barostat, designed to capture the effect of confining water along the $z$-axis between substrate surfaces. (c) Capillary water bridge, used without a barostat so that negative Laplace pressure may arise naturally within the water capillary bridge due to the curved geometry of the air-water interface (gray shading). (d) Narrow capillary bridge, simulates confinement of the water along the $x$-axis between the two air-water interfaces (gray shading).}
+\end{figure*}
+
+We simulate heterogeneous ice nucleation by inserting a hydrophilic substrate into a box of water with periodic boundary conditions. This configuration is shown in Fig. \ref{fig:configurations}(a). The substrate molecules are held fixed with zero velocity. Applying a Nose-Hoover barostat to the simulation box, we measure $j_{het}(T)$ at three pressures: 1 atm, $-500$ atm, and $-1000$ atm. The simulation box has dimensions of 49.22$\times$49.02$\times$58.75 \AA{}, containing 4,906 water molecules with a 10 \AA{} thick sheet of hydrophilic substrate inserted at the center of the z-axis. The total surface area of the substrate in contact with water (including both the top and bottom of the substrate) is 48.25 nm$^2$. Simulations containing 4,906 molecules (a volume of roughly 125 nm$^3$) are a conventional choice for studies that aim to simulate bulk water properties \citep[e.g.,][]{molinero2009, lupi2014, li2011}. The interaction forces felt between two water molecules in our simulation go to zero when molecules are spaced further than $\sim$4 \AA{} apart, and forces between water molecules and substrate molecules go to zero for separations beyond $\sim$5 \AA{} \citep{molinero2009}. Thus, the chosen thickness of our substrate ensures that water molecules on either side of the substrate will not interact with each other. To simulate the effects of confining the water between the two substrate surfaces, we repeat the simulations with reduced box heights, as shown in Fig. \ref{fig:configurations}(b). We test $z$-axis heights of $h = 30$ \AA{}, 24 \AA{}, and 18 \AA{}, which will later be used as the heights of our capillary water bridges. For both the ``unconfined'' and confined configurations, pressure is controlled using an isobaric-isoenthalpic (NPH) ensemble coupled with a Nose-Hoover thermostat, which together generate the isothermal-isobaric NPT ensemble \citep{allentildesley}.
+
+The selection of pressures used for this study is informed by two factors. First, Eq. (\ref{eq:dTdP}) dictates that the slope $\Delta T/ \Delta P$ is negative only when the molar volume difference between liquid water and ice is negative in value. In other words, an increase in freezing temperature due to negative pressure is only expected when $\Delta \nu_{ls} < 0$. Simulations of water under a wide range of thermodynamic conditions indicate that $\Delta \nu_{ls}$ changes from negatively to positively valued at some point below $-1000$ atm \citep{bianco2021}. We do not explore pressures below $-1000$ atm so this is not a concern. Furthermore, we are particularly interested in negative pressure regimes that could be feasibly be achieved during atmospheric processes or during laboratory experiments, making the range of pressure from 1 atm to $-1000$ atm the most appropriate for our purposes.
+
+We have taken steps towards addressing whether these magnitudes of negative pressure within water can be found in nature by simulating water capillary bridges. As will be discussed in Sec. \ref{capillary}, a volume of water placed between two hydrophilic substrate surfaces forms a capillary bridge that is expected to have negative Laplace pressure within the water. The same hydrophilic substrate used in the previously described simulations is used to construct water capillary bridges, shown in Fig. \ref{fig:configurations}(c). Capillary bridges with heights $h = 30$ \AA{}, 24 \AA{}, and 18 \AA{} are used. We apply the same constant-cooling simulation process to obtain intensive heterogeneous ice nucleation rates within the capillary bridges. In these simulations, we remove the external barostat so that negative pressure within the water is solely a result of the capillary bridge geometry. Water capillary bridge simulations are carried out in the NVT ensemble. The total area of contact between the water and substrate remains consistent ($\sim 48.25$ nm$^2$) to within 6\% for all capillary bridge configurations. Intensive nucleation rates are ultimately obtained by dividing by the water-substrate surface area (m$^{-2}$ s$^{-1}$); However, maintaining a consistent surface area ensures that all simulations sample the same magnitude of nucleation rate.
+
+We look more closely at the ice nucleation events within the water capillary bridges by identifying the location of all nucleation events. The identification of ice nucleation location is done visually using the clustering capability of OVITO, a visualization and analysis tool for molecular dynamics simulation data \citep{ovito}. The center of mass of the initial ice cluster is used as the freezing location. The initial ice clusters contain an average of 25 water molecules and their positions have an uncertainty of 5 \AA{} along each axis.
+
+Throughout this paper, data points will be presented using circles to indicate unconfined heterogeneous freezing in the configuration shown by Fig. \ref{fig:configurations}(a). Squares will indicate confined heterogeneous freezing as in the example of Fig. \ref{fig:configurations}(b). Diamonds will indicate water capillary bridge data, as in Fig. \ref{fig:configurations}(c). Narrow diamonds will represent the narrow capillary configuration, shown by Fig. \ref{fig:configurations}(d).
+
+
+
+\subsection{Interaction potential between water and substrate}
+
+In molecular dynamics simulation, the forces between molecules are defined by interaction potentials. We start our investigation of heterogeneous freezing with the mW water model, freezing on a substrate which was introduced by \citet{lupi2014} to model the interaction of mW water with a carbon surface. Our focus in this work is not to model any particular substrate. However, this interaction potential is a useful place to start because it has the benefit of having already been used in studies of ice nucleation and models a hydrophilic material \citep{lupi2014, Bi2016}. A description of the equations of interaction for this potential and its parameters is included in Appendix \ref{app: potential}.
+
+We observe that a simulation box containing 4,096 mW water molecules at 1 atm with no substrate freezes homogeneously at an average temperature of 202 K when cooled at a constant rate of 0.25 K ns$^{-1}$. After inserting a layer of substrate into the center of this same volume of water (as in Fig. \ref{fig:configurations}(a)) and using the same cooling rate, we observe that heterogeneous freezing on the substrate takes place at an average temperature of 217.5 K, a 15.5 K increase over the homogeneous freezing temperature. This is consistent with the results of \citet{lupi2014}, who reported a 12$\pm$3 K difference between heterogeneous and homogeneous freezing temperature when cooling at a rate of 1 K ns$^{-1}$.
+
+Our previous study \citep{rosky2022} indicates that the MLmW water model is more appropriate for studying pressure effects on ice nucleation because it exhibits a density anomaly that is closer to real water \citep{chan2019}. Therefore, in order to increase the ability to translate our findings onto real water droplets, we focus our study on the MLmW model instead of mW. We define a substrate interaction potential for the MLmW model that is a modified version of the mW-Carbon interaction potential defined by \citet{lupi2014}. We adjust the parameters of the interaction potential to form a potential between the substrate and MLmW water that is hydrophilic and stable within the range of negative pressures that we study. The resulting interaction parameters used in this work are summarized in Table \ref{Tab:potentials}.
+
+In selecting interaction parameters for the substrate, we are not attempting to exactly model the properties of water-carbon interaction or reproduce the mW-Carbon interaction potential for the MLmW model. However, we did select a potential that exhibits a similar difference between heterogeneous and homogeneous freezing temperature as shown by the mW model. A simulation box containing 4,096 MLmW water molecules at 1 atm freezes homogeneously at an average temperature of 214.5 K when cooled at a constant rate of 0.25 K ns$^{-1}$. With the substrate inserted, the average heterogeneous freezing temperature on this substrate is 228.5 K, a change in temperature of 14 K. 
+
+The resulting interaction potential between MLmW and substrate has a contact angle between water and substrate that is smaller than that of the mW-Carbon potential, which was tuned by \citet{lupi2014} to have a contact angle of 86 degrees. This smaller contact angle is consistent with \citet{Bi2016} and \citet{lupi2014hydrophilicity}, where the interaction potential is adjusted in a similar manner as here to modify the substrates hydrophilicity. Our estimate of the MLmW-Substrate contact angle is 50.5 degrees and will be discussed in Sec. \ref{capillary}.
+
+
+
+\section{Results}
+\subsection{Heterogeneous nucleation rate with negative pressure} \label{sec:hetrate}
+
+\begin{figure*}[t]
+\includegraphics[width=12cm]{figures/homohet_PT_figure.png}
+\caption{\label{fig:PT} Melting (green open circles), heterogeneous-freezing (red closed circles) and homogeneous freezing temperature (blue open circles) versus pressure. The heterogeneous freezing results are new, and the melting and homogeneous freezing results are reproduced from \citet{rosky2022} for comparison. The red and blue shading represents the 99\% confidence intervals (uncertainty) for the simulation data. Dashed lines use the slope predicted by Eq. (\ref{eq:dTdP}) to obtain a best fit to the intercept. Solid lines are a best linear fit of both slope and intercept. Contours of constant heterogeneous nucleation rate are, to within sampling uncertainty, linear and nearly parallel with lines of constant homogeneous nucleation rate for both the MLmW model (a) and mW model (b).  The gray melting point line from \citet{marcolli2017} is a fit to experimental measurements, which the MLmW model reproduces more realistically. Note that $-100$ MPa $= -1000$ atm.}
+\end{figure*}
+
+
+Freezing of water on a hydrophilic substrate (Fig. \ref{fig:configurations}(a)) is simulated at 1 atm, $-500$ atm and $-1000$ atm to identify how the intensive heterogeneous nucleation rate, $j_{het}$, behaves at negative pressures. The surface area of the substrate and the rate at which the system is cooled are two factors that determine the magnitude of $j_{het}$ that will be observed in these simulations, which in this case is $j_{het} = 10^{24}$ m$^{-2}$s$^{-1}$. Larger substrate area or slower cooling rate would each decrease the observed intensive heterogeneous nucleation rate. We keep these two factors fixed as we change the pressure of the system so that we observe the same magnitude of $j_{het}$ at all pressures. For each pressure setting, we identify the temperature at which the intensive nucleation rate $j_{het}$ is equal to $10^{24}$ m$^{-2}$s$^{-1}$, thus obtaining contours of constant $j_{het}$ in pressure--temperature coordinates. Figure \ref{fig:PT} shows these results for both the MLmW model and mW model. Intensive homogeneous nucleation rate data $j_{hom}$ (m$^{-3}$s$^{-1}$), as well as equilibrium melting points $T_m$ are also included in these plots for comparison from \citet{rosky2022}. 
+
+Comparing the data points for constant intensive heterogeneous nucleation rate ($j_{het} = 10^{24}$ m$^{-2}$s$^{-1}$) with the data for constant intensive homogeneous nucleation rate ($j_{hom} = 10^{32}$ m$^{-3}$s$^{-1}$), we see that they follow a very similar slope in pressure--temperature coordinates. Most significantly, we observe that the increase in temperature as a function of pressure for $j_{het}$ is linear to within the sampling uncertainty, indicating that the use of a linear approximation for $\Delta T/\Delta P$ is appropriate for heterogeneous ice nucleation. For the mW model in particular, the slope predicted by Eq. (\ref{eq:dTdP}) fits exceptionally well to both the homogeneous and heterogeneous freezing data. Meanwhile, Eq. (\ref{eq:dTdP}) seems to slightly underestimate the heterogeneous slope of the MLmW model. Nevertheless, these results indicate that the slope predicted by Eq. (\ref{eq:dTdP}) may still be applicable to heterogeneous nucleation, to within the simulation uncertainty. Thus we may conclude that $l_f$ and $\Delta v_{ls}$ remain key factors in determining the pressure dependence of heterogeneous nucleation rate. Indeed, it is significant to note that the observed slopes change consistently between mW and MLmW models, suggesting that the water density anomaly plays a similar key role for heterogeneous freezing as was previously found for homogeneous freezing \citep{rosky2022}. 
+
+In classical nucleation theory, $j_{het}$ has the form \citep{lamb2011physics}
+
+\begin{equation} \label{eq:R}
+    j_{het} = A \exp \! \left(\frac{C f_{het}}{T\Delta \mu ^2} \right),
+\end{equation}
+
+\noindent where $f_{het}$ is a heterogeneous compatibility function, typically related to the contact angle on the substrate, and $\Delta \mu$ is the chemical potential difference for the phase change. The factor $C = 16 \pi \gamma_{ls}^3 / (3 k_B \rho^2)$ depends on the liquid-solid surface tension ($\gamma_{ls}$) and density of ice ($\rho$). The pressure dependence is introduced into this expression by using a formulation for chemical potential difference given by \citet{nemec2013}.
+%Temperature dependent ice nucleation rate equation
+%https://doi.org/10.1021/jp066080w
+Equation (\ref{eq:dTdP}) is valid for heterogeneous, as well as homogeneous, ice nucleation, as long as the heterogeneous compatibility function $f_{het}$ of the substrate is not strongly pressure dependent, which has been formulated as a function of the effective contact angle between water and substrate \citep{lamb2011physics, zobrist2007}. The linear trend in our data suggest that the contact angle and compatibility function are not strongly dependent on pressure; this follows from the fact that the derivation of Eq. (\ref{eq:dTdP}) hinges on approximating many terms as constant along lines of constant $j$. If any of these assumptions are invalid, we would expect their effects to reveal themselves by producing a non-linear trend in pressure--temperature coordinates, which we do not observe.  
+
+The values used in Eq. (\ref{eq:dTdP}) to produce the dashed lines in Fig. \ref{fig:PT} are listed for each water model in Table \ref{tab:slopes} and are evaluated for bulk water (no proximity to an interface). As summarized in the table, using these values in Eq. (\ref{eq:dTdP}) predicts a slope $\Delta T/\Delta P = -0.069$ K MPa$^{-1}$ for the MLmW model. When fitting a line to the heterogeneous data points from our simulations (solid red line in Fig. \ref{fig:PT}(a)), we instead find a slope of $-0.14$ K MPa$^{-1}$. The slope predicted by Eq. (\ref{eq:dTdP}) (dashed red line in Fig. \ref{fig:PT}(a)) sits only marginally within the uncertainty bounds of the heterogeneous nucleation rate data and is 47\% steeper than our best fit of the MLmW homogeneous freezing data (See Table \ref{tab:slopes}).
+
+We take some time to consider which factors may contribute to the steeper slope of heterogeneous freezing line of the MLmW model compared to the homogeneous freezing line. Our hypothesis that Eq. (\ref{eq:dTdP}) still holds for heterogeneous ice nucleation, but that adjustments need to be made to the values of $\Delta v_{ls}$ or $l_f$ used in the equation. While the linear nature of $(\Delta T/\Delta P)$ is apparent in our results, we are less confident in the quantitative values of $\Delta v_{ls}$ and $l_f$ for heterogeneous freezing compared to homogeneous freezing. In the homogeneous case, the values of $T_m$, $l_f$, and $\Delta v_{ls}$ are well constrained because they can be calculated from bulk water, and as a result we see excellent agreement between Eq. (\ref{eq:dTdP}) and the homogeneous simulation results of \citet{rosky2022}. For the heterogeneous case, there is more ambiguity around these thermodynamic values because the properties of water near an interface may differ from the bulk properties. We see that by using the bulk thermodynamic values in Eq. (\ref{eq:dTdP}), we underestimate the slope by up to 50\%. Interestingly, this difference in homogeneous and heterogeneous slopes is seen only with the MLmW model. Meanwhile the homogeneous and heterogeneous freezing lines are nearly parallel for the mW model. This could indicate the thermodynamic properties of mW water are less influenced near the substrate compared to the MLmW model. 
+
+In all cases, using bulk water thermodynamic values in Eq. (\ref{eq:dTdP}) provides a lower-bound to the slope of $(\Delta T/\Delta P)$, which can be very useful in estimating the increase in heterogeneous freezing temperature due to negative pressure. However, further investigation is needed to identify a robust way to obtain values $l_f$, $\Delta v_{ls}$ that will account for the observed steepness of the MLmW heterogeneous nucleation slope. Going forward, the linearity and the theoretical prediction of the slope are probably adequate for practical use, given other significant uncertainties in using classical nucleation theory. 
+
+
+
+\begin{table}
+\begin{tabular}{ |p{2.60cm}||p{2.2cm}|p{2.2cm}|p{2.2cm}|p{2.2cm}|p{2.5cm}|  }
+ \hline
+ & \multicolumn{1}{|c|}{$l_f$}  
+ & \multicolumn{1}{|c|}{$T_m$}
+ & \multicolumn{1}{|c|}{$\Delta v_{ls}$}
+ & \multicolumn{1}{|c|}{$\frac{T_m \Delta v_{ls}}{l_f}$ } 
+ & \multicolumn{1}{|c|}{$\Delta T/ \Delta P$ best fit }\\
+ & \multicolumn{1}{|c|}{[J/mol] }  
+ & \multicolumn{1}{|c|}{[K] }
+ & \multicolumn{1}{|c|}{[m$^3$/mol]  }        
+ & \multicolumn{1}{|c|}{[K/MPa] }                           
+ & \multicolumn{1}{|c|}{[K/MPa] }\\
+ \hline
+ mW $J_{hom}$   & 5271.8 $^a$           & 273 $^{a,b}$  &  $-4.2 \times 10^{-7}$ $^{a,b}$     & $-0.022$    & $-0.035$ \\
+ mW $J_{het}$   & - - -   & 273           & - - -   &           & $-0.028$ \\
+ MLmW $J_{hom}$ & 5857.6 $^a$           & 292 $^b$      & $-13.8 \times 10^{-7}$ $^{a,b}$     & $-0.069$    & $-0.089$ \\
+ MLmW $J_{het}$ & - - -   & 292           & - - -   &           & $-0.14$ \\
+ Real water $J_{hom}$ & 6025.0 $^a$     & 273.15 $^a$   & $-16.1 \times 10^{-7}$ $^{b}$       & $-0.073$    & - - - \\
+ \hline
+\end{tabular}
+\caption{\label{tab:slopes} Parameters entering Eq. (\ref{eq:dTdP}) for homogeneous and heterogeneous nucleation, for both mW and MLmW models. Dashes indicate that a measurement of this value is not known to us. Sources: $^a$ \citet{chan2019}, $^b$ \citet{rosky2022}.}
+\end{table}
+
+
+
+
+\subsection{Heterogeneous ice nucleation in water capillary bridges} \label{capillary}
+
+One way for water to exist stably under negative pressure is through geometric configurations which produce high degrees of negative surface curvature at the air-water interface, such as inside a water capillary bridge. The negative pressure experienced by the water in these cases is a result of Laplace pressure, $P = \sigma_{lv}(\frac{1}{r_1}+\frac{1}{r_2})$, where $\sigma_{lv}$ is the surface tension between liquid and vapor, and $r_1$ and $r_2$ are the radii of curvature of the air-water interface. In these cases, the equilibrium pressure within the water is smaller than the external environmental pressure, allowing for negative pressure to exist within water that is otherwise in a 1 atm environment. The Laplace pressure associated with different capillary geometries is summarized by \citet{elliott2021}. For the capillary bridge configuration used in this study, shown in Fig. \ref{fig:configurations}(c), the expected Laplace pressure within the water is
+
+\begin{equation} \label{eq:dPh}
+   \Delta P = -\sigma_{lv} \frac{2\cos(\theta)}{h},
+\end{equation}
+
+\noindent where $\theta$ is the contact angle between water and the substrate. By substituting the above equation into Eq. (\ref{eq:dTdP}), we obtain an expression to predict the temperature increase for a given nucleation rate $j_{het}$ as a function of inverse capillary bridge height,  
+
+\begin{equation}\label{eq:dTh}
+     \Delta T = -2 \sigma_{lv}\cos(\theta) \frac{\Delta \nu_{ls} T_m }{l_f} \left(\frac{1}{h}\right).
+\end{equation}
+
+\noindent Given the previous conclusion that terms $\sigma_{lv}$ and $\theta$ do not change significantly with pressure, we expect a linear relationship between freezing temperature and inverse capillary height $1/h$. Figure \ref{fig:capillary} shows the freezing temperatures corresponding to an intensive heterogeneous nucleation rate $j_{het} = 10^{24}$ m$^{-2}$s$^{-1}$ inside water capillary bridges with heights $h = 30$, $24$, and $18$ \AA{}. We find that the data follows a linear trend as anticipated. As will be discussed in Sec. \ref{ice locations}, we have excluded the 18 \AA{} capillary bridge from the current analysis because this scale of confinement of the water between the substrate surfaces causes an increase in ice nucleation rate that cannot be attributed to negative pressure alone.
+
+\begin{figure}[t]
+\includegraphics[width=8.3cm]{figures/TvH_inset.png}
+\caption{Increase in heterogeneous freezing temperature $\Delta T$ versus $1/h$ for capillary-bridge heights of $h = 30$ (green filled diamond), 24 (blue filled diamond), and 18 \AA{} (red open diamond), as well as for bulk water (filled black circle) in contact with identical hydrophilic substrates. Excluding the 18-\AA{} capillary (red diamond) which is influenced by confinement effects, the line of constant nucleation rate as a function of inverse capillary height follows a linear trend. The 18-\AA{} capillary data is not included in the linear fit to obtain the indicated slope $\Delta T \cdot h$.}
+    \label{fig:capillary}
+\end{figure}
+
+
+%Calculating approximate negative pressure induced using capillary equation (Elliott), using surface tension that is given by Molinero and verified for MLmW via my own calculations.
+
+%Negative Laplace pressure results in an increasing nucleation temperature, consistent with Equation . As expected from the confinement effects at scales less than 24 A, the 18 A capillary bridge deviates from the linear trend that would be attributed to Laplace pressure effects alone. 
+
+We can now use the linear slope $-2 \sigma_{lv}\cos(\theta) \left[\frac{\Delta \nu_{ls} T_m }{l_f}\right]$ from Eq. (\ref{eq:dTh}) to analyze the results in Fig. \ref{fig:capillary}. A linear fit to the data points in Fig. \ref{fig:capillary} produces a slope $(\Delta T \cdot h)$ of $9.3$ K$\cdot$m. We also know from our analysis of $(\Delta T/\Delta P)$ in Sec. \ref{sec:hetrate} and Table \ref{tab:slopes} that the best fit value of $\left[\frac{\Delta \nu_{ls} T_m }{l_f}\right]$ for the MLmW model is $-0.14$ K MPa$^{-1}$. We substitute these two slopes into Eq. (\ref{eq:dTh}) to solve for the value $\sigma_{ls} cos(\theta) = 0.042$ J m$^{-2}$. The surface tension $\sigma_{ls}$ of the mW model was reported by \citet{molinero2009} to be $0.066$ J m$^{-2}$, and by following methods of \citet{li2009surface} (supplementary material), we found the same value for the MLmW model. Using this value of $\sigma_{ls}$, we solve for the contact angle $\theta = 50.5$ degrees. This value of $\theta$ is consistent with estimates we obtain by measuring the radius of curvature of the capillary bridge air-water interfaces using a method similar to \citet{giovambattista2007}. With these estimates of $\sigma_{ls}$ and $\theta$, we can also use Eq. (\ref{eq:dPh}) to calculate the magnitude of Laplace pressure that may be present within the water capillary bridges. The 24-\AA{} capillary bridge has a pressure of $-345$ atm, and the 30-\AA{} bridge a pressure of $-275$ atm.
+
+Our main findings are that negative Laplace pressure created within water capillary bridges increases the temperature of $j_{het}$ in a manner that is consistent with the linear slope of $\Delta T/\Delta P$ combined with the expected Laplace pressure for this capillary geometry. A 24-\AA{} capillary bridge can exhibit a $\approx 3$-K increase in heterogeneous freezing temperature, and a $\approx 2$-K increase within a 30-\AA{} water capillary bridge.
+
+\subsection{Effect of confinement between substrate layers}
+The ice nucleation rate in water can be effected by confined geometries \citep{cao2019, roudsari2022}. When analyzing the increase in freezing temperature within the water capillary bridges, we need to disentangle the effects of confinement from the effects of Laplace pressure. To do so, we ran simulations to observe how confinement alone affects ice nucleation rate on the substrate. We use the configuration shown in Fig. \ref{fig:configurations}(b), where the spacing between the substrate surfaces along the $z$-axis dimension has been reduced to 18, 24 and 30 \AA{} to match the levels of confinement present in our water capillary bridges. In these simulations, water molecules are confined between the substrate surfaces, but do not have the air-water interface that gives rise to Laplace pressure. Results are plotted in Fig. \ref{fig:confinement}(a), showing that 24 and 30-\AA{} separations (blue and green data points) have identical freezing temperatures at all pressures as the ``unconfined'' configuration (black data points). This allows us to conclude that the trends reported previously, e.g. for 24 and 30-\AA{} capillary bridges in Fig. \ref{fig:capillary}, are due to pressure alone. The 18-\AA{} setup (red data points in Fig. \ref{fig:confinement}(a)) exhibits a significant increase in freezing temperature as a result of the confined geometry. This behavior is indeed evident in the 18-\AA{} capillary bridge freezing data in Fig. \ref{fig:capillary}, which is why we have excluded the 18-\AA{} capillary bridge data from the slope analysis in the previous section. Other research \citep{elliott2021} supports that capillary theory can extend to the nano-scale used in our simulations, which our results corroborate. Meanwhile, our results are also consistent with \citet{Almeida2021}, who indicate that the capillary theory breaks down with separations less than $\approx 20$ \AA{}.
+
+\begin{figure*}[t]
+\includegraphics[width=12cm]{figures/confinement_effects.png}
+\caption{(a) Heterogeneous freezing temperature versus pressure with varying separation between substrates, illustrating the effect of confinement along the $z$-axis. We see that confinement influences the ice nucleation rate for only the 18-\AA{} configuration (red squares). The 24-\AA{} (blue squares) and 30-\AA{} (green squares) confinement configurations exhibit the same freezing temperatures at all pressures as the ``unconfined'' reference simulations (black circles). (b) Heterogeneous freezing temperature versus inverse capillary-bridge height for varying widths of the capillary bridge, showing the effect of confinement along the $x$-axis between air-water interfaces. Confining the water within a narrow capillary bridge (red diamonds) suppresses the increase in freezing temperature that is seen in the capillary bridges that are twice as wide (blue diamonds).}
+\label{fig:confinement}
+\end{figure*}
+
+
+
+\subsection{Freezing locations relative to the air-water interface} \label{ice locations}
+
+We now consider whether there is an analogous confinement effect along the $x$-axis, between the two air-water interfaces of our capillary bridge simulations. Figure \ref{fig:freezinglocations}(a) shows the locations of ice nucleation events throughout a capillary bridges viewed from the side, with the air-water interface shown in red shading. Figure \ref{fig:freezinglocations}(b) shows the ice nucleation locations in the $x,y$-plane, viewing the capillary bridge from above. We see that nucleation is preferred near the substrate as expected, but also that it is suppressed near the air-water interfaces. In Fig. \ref{fig:freezinglocations}(c) we plot freezing locations as a function of distance from the nearest substrate surface. Because this distribution is asymmetric (being affected by the substrate on one side) we fit a gamma distribution to the data to find that 99\% of nucleation events occur at distances between 3.2 and 6.9 \AA{} from the substrate, along the $z$-axis. Figure \ref{fig:freezinglocations}(d) shows the probability distribution of ice nucleation as a function of distance from the nearest air-water interface. Analyzing this spatial distribution of ice nucleation events, we observe that ice nucleation never occurs within 10 \AA{} of the air-water interface. Additionally, there is a statistically significant preference for ice nucleation to occur between 20 and 25 \AA{} from the air-water interface. Thus, it appears that ice nucleation has a preference for the air-water interface but avoids immediate proximity.
+
+Suppression of ice nucleation has been noted by \citet{haji-akbari2014suppression} in the vicinity of flat air-water interfaces using the mW model. They explain this effect through the observation that ice embryos near the interface tend to be less spherical compared to in the bulk, thus imposing a larger surface energy term that inhibits nucleation. Their analysis did not point towards a preference for freezing in the region 15-25 \AA{} from the interface as we see here. However, \citet{haji-akbari2017surface} found that for the more detailed TIP4P/ice model, ice nucleation was suppressed within 10 \AA{} of the air-water interface, and also showed evidence of higher ice nucleation rates near the interface compared to in the bulk.
+
+A narrow capillary bridge configuration can be seen in Fig. \ref{fig:configurations}(d), where the total surface area of substrate-water contact is kept constant by doubling the $y$-dimension of the simulation box while halving the width of the capillary bridge. The narrow capillary bridges are 30 \AA{} wide, so that most of the water is within 10 \AA{} of the air-water interface. Figure \ref{fig:confinement}(b) shows heterogeneous freezing rate temperatures as a function of $1/h$ for the wide capillary bridges used in our previous results (blue diamonds), compared with narrow capillary bridges (red diamonds). As a result of the apparent suppression of ice nucleation within 10 \AA{} of the air-water interface, we observe that confining the water within a narrow capillary bridge eliminates the temperature enhancement from Laplace pressure that is observed in the wide capillaries. Furthermore, the enhancement in freezing temperature within the 18-\AA{} capillary due to confinement between the substrate layers is also eliminated inside the narrow capillary bridge. In all of the narrow bridge heights (18 \AA{}, 24 \AA{}, and 30 \AA{}) we observe that the heterogeneous freezing temperatures have no change from the 1 atm heterogeneous case (black data point in Fig. \ref{fig:confinement}(b)). We also note that all ice nucleation events in the narrow capillary bridges still occur at least 10 \AA{} away from the air-water interface. In summary, confinement between hydrophilic substrates at scales smaller than 20 \AA{} tends to enhance nucleation in the MLmW model, whereas confinement between air-water interfaces on scales smaller than 30 \AA{} tends to inhibit heterogeneous nucleation.
+
+
+\begin{figure*}[t]
+\includegraphics[width=12cm]{figures/freezing_locations_distributions.png}
+\caption{Spatial locations of ice nucleation within water capillary bridges. (a) Locations in a 24 \AA{} tall capillary bridge, in the x-z plane. (b) Locations of freezing events in the x-y plane for both the 24 \AA{} and 30 \AA{} capillary bridges combined, viewed from above. (c) Probability density of ice nucleation initiating a distance away from the substrate, using data from the 24 \AA{} and 30 \AA{} capillary bridges. The dashed line is a gamma distribution fit. (d) Probability density of ice nucleation initiating a distance away from the air-water interface (red shading in Fig. (a) and (b)).\label{fig:freezinglocations}}
+\end{figure*}
+
+
+\section{Discussion and Concluding Remarks}
+
+From what we understand about ice nucleation, a supercooled water droplet in a cloud at a given temperature can be expected to freeze within a time frame dictated by the heterogeneous ice nucleation rate of the particle surfaces it may be in contact with. However, the factors that influence the heterogeneous nucleation rate are not all understood. Research on heterogeneous freezing in the atmosphere is performed on scales ranging from full clouds, using in-situ and remote sensing measurements to characterize aerosols and to identify the presence of ice in clouds; to the scale of single water droplets in laboratory studies and computer simulations to investigate the mechanisms that lead to freezing. Most measurements and computational results are interpreted in the context of classical nucleation theory, allowing the roles of temperature and time in the nucleation process to be understood \citep[e.g.,][]{niedermeier2011heterogeneous}. Most often, it is assumed that singular properties dominate over the stochastic time dependence, and it is therefore typical in cloud physics to characterize ice nucleating particles in terms of their freezing temperature \citep[e.g.,][]{hoose2012heterogeneous,frostenberg2022chance}. Knowledge of the freezing efficiency of ice nucleating particles is then used to understand the formation of ice in clouds \citep[e.g.,][]{yang2013minimalist,fu2017effect}. Their representation in coarse-resolution models even has implications for prediction of Arctic amplification in the climate problem \citep{tan2022potential}. 
+
+This study has focused on how, for a fixed nucleation rate, the heterogeneous freezing temperature increases with decreasing pressure. Our key result is that the temperature corresponding to a certain ice nucleation rate increases linearly with the magnitude of negative pressure. Specifically, regardless of how negative pressure is created in the system, e.g. barostat or Laplace pressure, the change is described by the approximation $\Delta T/\Delta P = T_m \Delta v_{ls} / l_f$ (see Eq. (\ref{eq:dTdP})). This is certainly not true across a broad range of pressures \citep[e.g.,][]{bianco2021, espinosa2016}; however, for atmospheric processes it is likely that only the negative pressure range of 1 atm to $-1000$ atm, which was investigated here, is relevant. Therefore, the linear approximation can serve as the basis for a straightforward parameterization of the pressure effect. Essentially, the temperature increase for heterogeneous freezing is determined in large part by the volume difference between liquid and ice. For real water using the values listed in Table \ref{tab:slopes} we can estimate that the slope $(\Delta T/\Delta P)$ is $7.3 \times 10^{-8}$ K Pa$^{-1}$ $= 7.3 \times 10^{-3}$ K atm$^{-1}$. Consider, for example, a case where atmospheric cloud droplets containing a certain type of ice nucleating particle are likely to freeze within a second at $-20$ $^\circ$C, implying a corresponding nucleation rate of $J_{atmospheric}$. The parameterization implied by Eq. (\ref{eq:dTdP}) states that if the water in contact with the ice nucleating substrate is under a tension of $-500$ atm, then $\Delta T = 4$ K. Thus, the same nucleation rate $J_{atmospheric}$ at which freezing occurs within a second, would instead be encountered at $-16$ $^\circ$C. This negative pressure could be calculated according to the Laplace pressure, such that the environmental pressure can be 1 atm, but the pressure within the water with a negative radius of curvature is negative.
+
+Natural examples abound with water under tension, having negative pressures in the range of 100s of atmospheres, within the range explored in this paper. For example, changes in pressure within mineral inclusions have been shown to lead to significant changes in the conditions for ice-water coexistence, and even to the superheating of ice \citep{roedder1967metastable}. Soils consist of a hierarchy of particle sizes that are bound through capillary tension, with similar pressure ranges being present \citep{seiphoori2020}. Negative pressures in trees, and even synthetic trees, reach negative pressures of 100s of atmospheres \citep{wheeler2008transpiration}. Our findings provide additional perspectives to those of \citet{lintunen2013anatomical}, who showed a tendency for suppression of ice nucleation in the xylem of vascular plants. 
+
+Negative pressures can also be generated through dynamic means. For example, droplets impacting solid or liquid surfaces can experience significant pressure perturbations \citep{cheng2022drop}. In fact, mechanical impact has been implemented as a method to initiate ice nucleation to avoid the persistence of supercooled liquid in phase-change thermal storage systems \citep{wang2022nucleation}. Conversely, imposing isochoric conditions has been shown to greatly increase the stability of supercooled water so that it can be used for cryopreservation \citep{powell2020isochoric}. One can speculate that there could be connections to contact nucleation or even formation of ice from collisions between supercooled droplets \citep{alkezweeny1969freezing} or breakup of supercooled raindrops that contain ice nucleating particles that otherwise would not be active, save for large, transient negative pressures \citep{james2021impact}. It has been observed repeatedly that ice generation in clouds is correlated with the presence of large drops \citep{rangno1991ice,lance2011cloud}, and it is worth noting that such drops are exactly what is needed to allow significant collisional growth or drop breakup. These will be exciting ideas to explore in future research.
+
+Other perspectives on ice nucleation can also be related to the pressure and density-anomaly results presented here. \citet{baker2004new} argued that freezing in pure water occurs at the temperature at which its compressibility, with associated density fluctuations, reaches a maximum. The results were for atmospheric pressure, but the perspective that local densities of water and ice drive ice nucleation, rather than specific interfacial properties, is consistent. The effect of pressure on nucleation rate can be interpreted in terms of water activity; for example, \citep{knopf2013water} have shown via extensive laboratory experiments with a range of materials, that nucleation rates scale with water activity. This further extends the findings of \citet{koop2000water} that freezing and melting are related to pressure, following the water activity. The perspective of water activity dependence in aqueous solutions is most directly relevant to freezing temperature depression, but in general its dependence on pressure is consistent with our molecular dynamics results. Freezing temperature depression due to positive pressure in water was measured experimentally by \citet{kanno1975} and decrease in ice nucleation rate due to positive Laplace pressure in nano-scale water droplets was demonstrated by \citet{Li2013}, both leading to the intuitive notion that negative Laplace pressure will cause an increase in freezing temperature.
+
+
+% Concluding Remarks
+Using molecular dynamics simulations of heterogeneous ice nucleation on a hydrophilic substrate, we demonstrate that negative pressure within supercooled water allows for a given ice nucleation rate to occur at higher temperatures. The increase in freezing temperature with negative pressure is linear in nature, which lends support to the use of a linear approximation that depends on the latent heat release and water density anomaly to predict the slope.  This approximation works particularly well for homogeneous nucleation rates; it is acceptable for heterogeneous nucleation, but the variables may need adjustment to provide better quantitative agreement. 
+
+To observe this pressure-dependent trend in heterogeneous nucleation rate, we first used a simulation setup with a substrate in contact with the volume of water. A barostat was applied to this system to probe pressures of 1 atm, $-500$ atm, and $-1000$ atm. Next, we created a configuration where negative pressure is introduced into the water without applying a barostat, but instead through negative Laplace pressure inside a water capillary bridge between two surfaces of substrate. The pressure within the capillary depends on the level of curvature, which is set by the contact angle and separation between substrate layers, and enhancement in ice nucleation rate consistent with Eq. (\ref{eq:dTdP}) was observed.
+
+Finally, to see how confinement alone affects ice nucleation rate on the substrate, we decreased the separation distance to 18, 24, and 30 \AA{}. We observed that 24 and 30-\AA{} separations showed identical ice nucleation rates as the larger volume system. The 18 \AA{} setup exhibited a large increase in ice nucleation rate as a result of the confined system. Nucleation was also shown to avoid regions within approximately 10 \AA{} of an air-water interface, but may have a preference for that distance compared to the bulk. Thus, capillary bridges or other substrate-water geometries with layers less than 20 \AA{} thick will be strongly influenced by the proximity of the interface, and the simple parameterization of freezing temperature enhancement due to negative pressure cannot be directly applied.  
+
+
+\appendix
+\section{Molecular Interaction Potential}\label{app: potential} 
+%% Appendix A
+
+Interactions between water molecules and other water molecules, as well as interactions between water molecules and substrate molecules are all described using versions of the Stillinger-Weber interaction potential \citep{stillinger1985computer}. When used for interactions involving water molecules, this potential is coarse-grained, meaning that the oxygen and hydrogen atoms are combined into one atom. The bonds between water molecules are then represented using a three-body potential, $\phi_{3}$, which is a function of the angle $\theta_{ijk}$ formed between every set of three water molecules ($i$,$j$, and $k$). This three-body potential creates a preference towards water molecuels adobpting a bond angle of approximately 105 degrees, set by the $\cos\theta_0$ parameter in Table \ref{Tab:potentials}. A two-body interaction term, $\phi_{2}$, applies forces that are dependent on the radial distance between two atoms $r_{ij}$.
+
+\begin{align}\label{eq:sw-potential}
+\phi_{2}(r_{ij}) &= A\epsilon\left[B(\frac{\sigma}{r_{ij}})^{p} - (\frac{\sigma}{r_{ij}})^{q}\right]\exp \left( \frac{\sigma}{r_{ij}-a\sigma}\right)\\
+\phi_{3}(\theta_{ijk}, r_{ij}, r_{ik}) &= \lambda\epsilon[\cos\theta_{ijk} - \cos\theta_0]^2 \exp \left(\frac{\gamma\sigma}{r_{ij}-a\sigma}\right) \exp \left(\frac{\gamma\sigma}{r_{ik}-a\sigma}\right)
+\end{align}
+
+The parameters used for the interaction between water molecules and the substrate are summarized in Table \ref{Tab:potentials}. The cutoff distance where forces between molecules goes to zero is $a\sigma$. Note also that interactions between water molecules and substrate molecules do not have a three-body contribution, and are only influenced by the two-body potential term.
+
+In creating a suitable interaction potential for an interaction between MLmW water and the substrate, we start with the MLmW-MLmW parameters and, as in the methods of \citet{fitzner2015facets}, only the $\epsilon$ and $\sigma$ values are adjusted to produce our MLmW-Substrate interaction. Given that the value of $\epsilon$ we have used is larger than that of the mW-Carbon interaction, the smaller contact angle that we see for MLmW-Substrate is consistent with \citet{Bi2016} and \citet{cox2015hydrophilicity}, where higher values of $\epsilon$ were used to increase hydrophilicity of the Carbon-mW interaction potential \cite{Bi2016}.
+
+\appendixtables
+\begin{table}
+\begin{tabular}{ |p{1.95cm}||p{3.0cm}|p{3.0cm}|p{3.0cm}|p{3.0cm}|  }
+ \hline
+ & mW-Carbon  & MLmW-Substrate & mW-mW  &  MLmW-MLmW \\
+& \citep{lupi2014}  & & \citep{molinero2009} &  \citep{chan2019} \\
+ \hline
+ $\epsilon$ (Kcal/mole)    & 0.13          & 0.35      & 6.189         & 6.855473  \\
+ $\sigma$ (\AA{})      & 3.2           & 2.2       & 2.3925        & 1.884015\\
+ $a$                      & 1.80          & 2.124872  & 1.80          & 2.124872  \\
+ $\lambda$                 & 0.0           & 0.0       & 23.15         & 24.673877 \\
+ $\gamma$                  & 0.0           & 0.0       & 1.20          & 1.207943  \\
+ $\cos\theta_0$              & 0.0           & 0.0       & $-0.33$         & $-0.279667$ \\
+ $A$                      & 7.049556277   & 7.111598  & 7.049556277   & 7.111598  \\
+ $B$                      & 0.6022245584  & 1.991526  & 0.6022245584  & 1.991526  \\
+ $p$                      & 4.0           & 4.011214  & 4.0           & 4.011214  \\
+ $q$                      & 0.0           & 0.0       & 0.0           & 0.0       \\
+ $tol$                    & 0.0           & 0.0       & 0.0           & 0.0       \\
+ \hline
+\end{tabular}
+\caption{Parameters of the interaction potential between water and the substrate, and for water-water interactions, for the mW model and the MLmW model. The Stillinger--Weber interaction potential is given by Eq. (\ref{eq:sw-potential}). \label{Tab:potentials}}
+\end{table}
+
+
+%\subsection{}     %% Appendix A1, A2, etc.
+
+\codedataavailability{
+LAMMPS is free and open-source software developed by Sandia National Laboratory and a large user community. Scripts to reproduce simulations in LAMMPS and data going into Figures can be found at http://doi.org/10.37099/mtu.dc.all-datasets/41
+} %% use this section when having data sets and software code available
+
+\authorcontribution{ER, WC, and RAS designed the study; ER, TL, and IN set up the simulations; ER ran the simulations; All authors contributed to interpreting the results and writing the paper. 
+} %% this section is mandatory
+
+\competinginterests{No competing interests are present} %% this section is mandatory even if you declare that no competing interests are present
+
+%\section{Acknowledgements}
+\begin{acknowledgements}
+Funding from NSF grant AGS-2019649 is gratefully acknowledged. TL acknowledges support from NSF through award CBET-2053330. IN acknowledges NSF (DMR-1944211). The High-Performance Computing Shared Facility (Portage) at Michigan Technological University was used in obtaining results presented in this publication. We acknowledge the LAMMPS community for helpful discussions and support.
+\end{acknowledgements}
+
+%\bibliography{references}
+\bibliographystyle{copernicus}
+\bibliography{references.bib}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+

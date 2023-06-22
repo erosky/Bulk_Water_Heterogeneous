@@ -1,0 +1,395 @@
+\begin{thebibliography}{74}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{{\tt #1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{https://doi.org/\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{https://doi.org/\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+
+\bibitem[{Alkezweeny(1969)}]{alkezweeny1969freezing}
+Alkezweeny, A.~J.: Freezing of supercooled water droplets due to collision,
+  Journal of Applied Meteorology and Climatology, 8, 994--995, 1969.
+
+\bibitem[{Allen and Tildesley(2017)}]{allentildesley}
+Allen, M.~P. and Tildesley, D.~J.: Computer {S}imulation of {L}iquids, Oxford
+  University Press, second edn., 2017.
+
+\bibitem[{Almeida et~al.(2021)Almeida, Buldyrev, Alencar, and
+  Giovambattista}]{Almeida2021}
+Almeida, A.~B., Buldyrev, S.~V., Alencar, A.~M., and Giovambattista, N.: How
+  small is too small for the capillarity theory?, The Journal of Physical
+  Chemistry C, 125, 5335--5348, 2021.
+
+\bibitem[{Baker and Baker(2004)}]{baker2004new}
+Baker, M. and Baker, M.: A new look at homogeneous freezing of water,
+  Geophysical Research Letters, 31, L19\,102, 2004.
+
+\bibitem[{Bi et~al.(2016)Bi, Cabriolu, and Li}]{Bi2016}
+Bi, Y., Cabriolu, R., and Li, T.: Heterogeneous ice nucleation controlled by
+  the coupling of surface crystallinity and surface hydrophilicity, Journal of
+  Physical Chemistry C, 120, 1507--1514, 2016.
+
+\bibitem[{Bianco et~al.(2021)Bianco, de~Hijes, Lamas, Sanz, and
+  Vega}]{bianco2021}
+Bianco, V., de~Hijes, P.~M., Lamas, C.~P., Sanz, E., and Vega, C.: Anomalous
+  behavior in the nucleation of ice at negative pressures, Physical Review
+  Letters, 126, 015\,704, 2021.
+
+\bibitem[{Cantrell and Heymsfield(2005)}]{cantrell2005production}
+Cantrell, W. and Heymsfield, A.: Production of ice in tropospheric clouds: A
+  review, Bulletin of the American Meteorological Society, 86, 795--808, 2005.
+
+\bibitem[{Cao et~al.(2019)Cao, Xu, and Li}]{cao2019}
+Cao, B., Xu, E., and Li, T.: Anomalous stability of two-dimensional ice
+  confined in hydrophobic nanopores, ACS Nano, 13, 4712--4719, 2019.
+
+\bibitem[{Chan et~al.(2019)Chan, Cherukara, Narayanan, Loeffler, Benmore, Gray,
+  and Sankaranarayanan}]{chan2019}
+Chan, H., Cherukara, M.~J., Narayanan, B., Loeffler, T.~D., Benmore, C., Gray,
+  S.~K., and Sankaranarayanan, S. K. R.~S.: Machine learning coarse grained
+  models for water, Nature Communications, 10, 2009--2014, 2019.
+
+\bibitem[{Cheng et~al.(2022)Cheng, Sun, and Gordillo}]{cheng2022drop}
+Cheng, X., Sun, T.-P., and Gordillo, L.: Drop impact dynamics: Impact force and
+  stress distributions, Annual Review of Fluid Mechanics, 54, 57--81, 2022.
+
+\bibitem[{Cox et~al.(2015)Cox, Kathmann, Slater, and
+  Michaelides}]{cox2015hydrophilicity}
+Cox, S.~J., Kathmann, S.~M., Slater, B., and Michaelides, A.: Molecular
+  simulations of heterogeneous ice nucleation. I. Controlling ice nucleation
+  through surface hydrophilicity, The Journal of Chemical Physics, 142,
+  184\,704, 2015.
+
+\bibitem[{David et~al.(2020)David, Fahrni, Marcolli, Mahrt, Br{\"u}hwiler, and
+  Kanji}]{david2020role}
+David, R.~O., Fahrni, J., Marcolli, C., Mahrt, F., Br{\"u}hwiler, D., and
+  Kanji, Z.~A.: The role of contact angle and pore width on pore condensation
+  and freezing, Atmospheric Chemistry and Physics, 20, 9419--9440, 2020.
+
+\bibitem[{DeMott et~al.(2010)DeMott, Prenni, Liu, Kreidenweis, Petters, Twohy,
+  Richardson, Eidhammer, and Rogers}]{demott2010predicting}
+DeMott, P.~J., Prenni, A.~J., Liu, X., Kreidenweis, S.~M., Petters, M.~D.,
+  Twohy, C.~H., Richardson, M., Eidhammer, T., and Rogers, D.: Predicting
+  global atmospheric ice nuclei distributions and their impacts on climate,
+  Proceedings of the National Academy of Sciences, 107, 11\,217--11\,222, 2010.
+
+\bibitem[{Dhabal et~al.(2022)Dhabal, Sankaranarayanan, and
+  Molinero}]{dhabal2022icewater}
+Dhabal, D., Sankaranarayanan, S. K. R.~S., and Molinero, V.: Stability and
+  Metastability of Liquid Water in a Machine-Learned Coarse-Grained Model with
+  Short-Range Interactions, The Journal of Physical Chemistry B, 126,
+  9881--9892, 2022.
+
+\bibitem[{Diehl et~al.(2002)Diehl, Matthias-Maser, Jaenicke, and
+  Mitra}]{diehl2002ice}
+Diehl, K., Matthias-Maser, S., Jaenicke, R., and Mitra, S.: The ice nucleating
+  ability of pollen:: Part II. Laboratory studies in immersion and contact
+  freezing modes, Atmospheric Research, 61, 125--133, 2002.
+
+\bibitem[{Elliott(2021)}]{elliott2021}
+Elliott, J. A.~W.: Surface thermodynamics at the nanoscale, Journal of Chemical
+  Physics, 154, 190\,901, 2021.
+
+\bibitem[{Espinosa et~al.(2016)Espinosa, Zaragoza, Rosales-Pelaez, Navarro,
+  Valeriani, Vega, and Sanz}]{espinosa2016}
+Espinosa, J.~R., Zaragoza, A., Rosales-Pelaez, P., Navarro, C., Valeriani, C.,
+  Vega, C., and Sanz, E.: Interfacial free energy as the key to the
+  pressure-induced deceleration of ice nucleation, Physical Review Letters,
+  117, 135\,702, 2016.
+
+\bibitem[{Evans(1967)}]{evans1967}
+Evans, L.~F.: Two-dimensional Nucleation of Ice, Nature, 213, 384–385, 1967.
+
+\bibitem[{Fitzner et~al.(2015)Fitzner, Sosso, Cox, and
+  Michaelides}]{fitzner2015facets}
+Fitzner, M., Sosso, G.~C., Cox, S.~J., and Michaelides, A.: The many faces of
+  heterogeneous ice nucleation: Interplay between surface morphology and
+  hydrophobicity, Journal of the American Chemical Society, 137,
+  13\,658--13\,669, 2015.
+
+\bibitem[{Frostenberg et~al.(2022)Frostenberg, Welti, Luhr, Savre, S~Thomson,
+  and Ickes}]{frostenberg2022chance}
+Frostenberg, H.~C., Welti, A., Luhr, M., Savre, J., S~Thomson, E., and Ickes,
+  L.: The chance of freezing--Parameterizing temperature dependent freezing
+  including randomness of INP concentrations, Atmospheric Chemistry and Physics
+  Discussions, pp. 1--24, 2022.
+
+\bibitem[{Fu and Xue(2017)}]{fu2017effect}
+Fu, S. and Xue, H.: The effect of ice nuclei efficiency on Arctic mixed-phase
+  clouds from large-eddy simulations, Journal of the Atmospheric Sciences, 74,
+  3901--3913, 2017.
+
+\bibitem[{Giovambattista et~al.(2007)Giovambattista, Debenedetti, and
+  Rossky}]{giovambattista2007}
+Giovambattista, N., Debenedetti, P.~G., and Rossky, P.~J.: Effect of surface
+  polarity on water contact angle and interfacial hydration structure, The
+  Journal of Physical Chemistry B, 111, 9581--9587, 2007.
+
+\bibitem[{Gurganus et~al.(2014)Gurganus, Charnawskas, Kostinski, and
+  Shaw}]{gurganus2014nucleation}
+Gurganus, C., Charnawskas, J., Kostinski, A., and Shaw, R.: Nucleation at the
+  contact line observed on nanotextured surfaces, Physical review letters, 113,
+  235\,701, 2014.
+
+\bibitem[{Haji-Akbari and Debenedetti(2017)}]{haji-akbari2017surface}
+Haji-Akbari, A. and Debenedetti, P.~G.: Computational investigation of surface
+  freezing in a molecular model of water, Proceedings of the National Academy
+  of Sciences, 114, 3316--3321, 2017.
+
+\bibitem[{Haji-Akbari et~al.(2014)Haji-Akbari, DeFever, Sarupria, and
+  Debenedetti}]{haji-akbari2014suppression}
+Haji-Akbari, A., DeFever, R.~S., Sarupria, S., and Debenedetti, P.~G.:
+  Suppression of sub-surface freezing in free-standing thin films of a
+  coarse-grained model of water, Physical Chemistry Chemical Physics, 16,
+  25\,916--25\,927, 2014.
+
+\bibitem[{Hoose and M{\"o}hler(2012)}]{hoose2012heterogeneous}
+Hoose, C. and M{\"o}hler, O.: Heterogeneous ice nucleation on atmospheric
+  aerosols: a review of results from laboratory experiments, Atmospheric
+  Chemistry and Physics, 12, 9817--9854, 2012.
+
+\bibitem[{Hussain and Haji-Akbari(2021)}]{hussain2021contactfreezing}
+Hussain, S. and Haji-Akbari, A.: Role of Nanoscale Interfacial Proximity in
+  Contact Freezing in Water, Journal of the American Chemical Society, 143,
+  2272--2284, 2021.
+
+\bibitem[{Jacobsen et~al.(2007)Jacobsen, Pratt, Ewers, and
+  Davis}]{jacobsen2007xylem}
+Jacobsen, A.~L., Pratt, R.~B., Ewers, F.~W., and Davis, S.~D.: Cavitation
+  resistance among 26 chaparral species of southern California, Ecological
+  Monographs, 77, 99--115, 2007.
+
+\bibitem[{James et~al.(2021)James, Phillips, and Connolly}]{james2021impact}
+James, R.~L., Phillips, V. T.~J., and Connolly, P.~J.: Secondary ice production
+  during the break-up of freezing water drops on impact with ice particles,
+  Atmospheric Chemistry and Physics, 21, 18\,519--18\,530, 2021.
+
+\bibitem[{Kanno et~al.(1975)Kanno, Speedy, and Angell}]{kanno1975}
+Kanno, H., Speedy, R.~J., and Angell, C.~A.: Supercooling of water to
+  -92\degree C under pressure, Science, 189, 880--881, 1975.
+
+\bibitem[{Klumpp et~al.(2023)Klumpp, Marcolli, Alonso-Hellweg, Dreimol, and
+  Peter}]{klumpp2023comparing}
+Klumpp, K., Marcolli, C., Alonso-Hellweg, A., Dreimol, C.~H., and Peter, T.:
+  Comparing the ice nucleation properties of the kaolin minerals kaolinite and
+  halloysite, Atmospheric Chemistry and Physics, 23, 1579--1598, 2023.
+
+\bibitem[{Knopf and Alpert(2013)}]{knopf2013water}
+Knopf, D.~A. and Alpert, P.~A.: A water activity based model of heterogeneous
+  ice nucleation kinetics for freezing of water and aqueous solution droplets,
+  Faraday Discussions, 165, 513--534, 2013.
+
+\bibitem[{Koop et~al.(1997)Koop, Luo, Biermann, Crutzen, and Peter}]{koop1997}
+Koop, T., Luo, B., Biermann, U.~M., Crutzen, P.~J., and Peter, T.: Freezing of
+  HNO3/H2SO4/H2O solutions at stratospheric temperatures: Nucleation statistics
+  and experiments, Journal of Physical Chemistry A, 101, 1117--1133, 1997.
+
+\bibitem[{Koop et~al.(2000)Koop, Luo, Tsias, and Peter}]{koop2000water}
+Koop, T., Luo, B., Tsias, A., and Peter, T.: Water activity as the determinant
+  for homogeneous ice nucleation in aqueous solutions, Nature, 406, 611--614,
+  2000.
+
+\bibitem[{Lamb and Verlinde(2011)}]{lamb2011physics}
+Lamb, D. and Verlinde, J.: Physics and Chemistry of Clouds, Cambridge
+  University Press, 2011.
+
+\bibitem[{Lance et~al.(2011)Lance, Shupe, Feingold, Brock, Cozic, Holloway,
+  Moore, Nenes, Schwarz, Spackman et~al.}]{lance2011cloud}
+Lance, S., Shupe, M., Feingold, G., Brock, C., Cozic, J., Holloway, J., Moore,
+  R., Nenes, A., Schwarz, J., Spackman, J.~R., et~al.: Cloud condensation
+  nuclei as a modulator of ice processes in Arctic mixed-phase clouds,
+  Atmospheric Chemistry and Physics, 11, 8003--8015, 2011.
+
+\bibitem[{Levin and Yankofsky(1983)}]{levin1983contact}
+Levin, Z. and Yankofsky, S.~A.: Contact versus immersion freezing of freely
+  suspended droplets by bacterial ice nuclei, Journal of Climate and Applied
+  Meteorology, pp. 1964--1966, 1983.
+
+\bibitem[{Li et~al.(2009)Li, Donadio, Ghiringhelli, and Galli}]{li2009surface}
+Li, T., Donadio, D., Ghiringhelli, L.~M., and Galli, G.: Surface-induced
+  crystallization in supercooled tetrahedral liquids, Nature Materials, 8,
+  726--730, 2009.
+
+\bibitem[{Li et~al.(2011)Li, Donadio, Russo, and Galli}]{li2011}
+Li, T., Donadio, D., Russo, G., and Galli, G.: Homogeneous ice nucleation from
+  supercooled water, Physical Chemistry Chemical Physics, 13, 19\,807--19\,813,
+  2011.
+
+\bibitem[{Li et~al.(2013)Li, Donadio, and Galli}]{Li2013}
+Li, T., Donadio, D., and Galli, G.: Ice nucleation at the nanoscale probes no
+  man’s land of water, Nature Communications, 4, 1--6, 2013.
+
+\bibitem[{Lintunen et~al.(2013)Lintunen, H{\"o}ltt{\"a}, and
+  Kulmala}]{lintunen2013anatomical}
+Lintunen, A., H{\"o}ltt{\"a}, T., and Kulmala, M.: Anatomical regulation of ice
+  nucleation and cavitation helps trees to survive freezing and drought stress,
+  Scientific Reports, 3, 1--7, 2013.
+
+\bibitem[{Lu et~al.(2016)Lu, Chakravarty, and Molinero}]{lu2016anomaly}
+Lu, J., Chakravarty, C., and Molinero, V.: {Relationship between the line of
+  density anomaly and the lines of melting, crystallization, cavitation, and
+  liquid spinodal in coarse-grained water models}, The Journal of Chemical
+  Physics, 144, 2016.
+
+\bibitem[{Lupi and Molinero(2014)}]{lupi2014hydrophilicity}
+Lupi, L. and Molinero, V.: Does hydrophilicity of carbon particles improve
+  their ice nucleation ability?, The Journal of Physical Chemistry A, 118,
+  7330--7337, 2014.
+
+\bibitem[{Lupi et~al.(2014)Lupi, Hudait, and Molinero}]{lupi2014}
+Lupi, L., Hudait, A., and Molinero, V.: Heterogeneous nucleation of ice on
+  carbon surfaces, Journal of the American Chemical Society, 136, 3156--3164,
+  2014.
+
+\bibitem[{Marcolli(2017)}]{marcolli2017}
+Marcolli, C.: Ice nucleation triggered by negative pressure, Scientific
+  Reports, 7, 2017.
+
+\bibitem[{Marcolli(2020)}]{marcolli2020technical}
+Marcolli, C.: Technical note: Fundamental aspects of ice nucleation via pore
+  condensation and freezing including Laplace pressure and growth into
+  macroscopic ice, Atmospheric Chemistry and Physics, 20, 3209--3230, 2020.
+
+\bibitem[{Molinero and Moore(2009)}]{molinero2009}
+Molinero, V. and Moore, E.: Water modeled as an intermediate element between
+  carbon and silicon, Journal of Physical Chemistry B, 113, 4008--4016, 2009.
+
+\bibitem[{Montero~de Hijes et~al.(2023)Montero~de Hijes, R~Espinosa, Vega, and
+  Dellago}]{MonteroDeHijes2023}
+Montero~de Hijes, P., R~Espinosa, J., Vega, C., and Dellago, C.: {Minimum in
+  the pressure dependence of the interfacial free energy between ice Ih and
+  water}, The Journal of Chemical Physics, 158, 124503, 2023.
+
+\bibitem[{N{\v{e}}mec(2013)}]{nemec2013}
+N{\v{e}}mec, T.: Estimation of ice--water interfacial energy based on
+  pressure-dependent formulation of classical nucleation theory, Chemical
+  Physics Letters, 583, 64--68, 2013.
+
+\bibitem[{Niedermeier et~al.(2011)Niedermeier, Shaw, Hartmann, Wex, Clauss,
+  Voigtl{\"a}nder, and Stratmann}]{niedermeier2011heterogeneous}
+Niedermeier, D., Shaw, R., Hartmann, S., Wex, H., Clauss, T., Voigtl{\"a}nder,
+  J., and Stratmann, F.: Heterogeneous ice nucleation: exploring the transition
+  from stochastic to singular freezing behavior, Atmospheric Chemistry and
+  Physics, 11, 8767--8775, 2011.
+
+\bibitem[{Niehaus and Cantrell(2015)}]{niehaus2015}
+Niehaus, J. and Cantrell, W.: Contact freezing of fater by falts, Journal of
+  Physical Chemistry Letters, 6, 3490--3495, 2015.
+
+\bibitem[{Pitter and Pruppacher(1973)}]{pitter1973wind}
+Pitter, R. and Pruppacher, H.: A wind tunnel investigation of freezing of small
+  water drops falling at terminal velocity in air, Quarterly Journal of the
+  Royal Meteorological Society, 99, 540--550, 1973.
+
+\bibitem[{Plimpton(1995)}]{plimpton1995}
+Plimpton, S.: {Fast parallel algorithms for short-range molecular dynamics},
+  Journal of Computational Physics, 117, 1--19, 1995.
+
+\bibitem[{Powell-Palm et~al.(2020)Powell-Palm, Koh-Bell, and
+  Rubinsky}]{powell2020isochoric}
+Powell-Palm, M.~J., Koh-Bell, A., and Rubinsky, B.: Isochoric conditions
+  enhance stability of metastable supercooled water, Applied Physics Letters,
+  116, 123\,702, 2020.
+
+\bibitem[{Pruppacher and Klett(1997)}]{pruppacher1997}
+Pruppacher, H.~R. and Klett, J.~D.: Microphysics of Clouds and Precipitation,
+  Kluwer Academic Publishers, Dordrecht, The Netherlands, 1997.
+
+\bibitem[{Qiu and Molinero(2018)}]{qiu2018premelting}
+Qiu, Y. and Molinero, V.: Why Is It So Difficult to Identify the Onset of Ice
+  Premelting?, The Journal of Physical Chemistry Letters, 9, 5179--5182, 2018.
+
+\bibitem[{Qiu et~al.(2018)Qiu, Lupi, and Molinero}]{qiu2018graphiteinterface}
+Qiu, Y., Lupi, L., and Molinero, V.: Is Water at the Graphite Interface
+  Vapor-like or Ice-like?, The Journal of Physical Chemistry B, 122,
+  3626--3634, 2018.
+
+\bibitem[{Rangno and Hobbs(1991)}]{rangno1991ice}
+Rangno, A.~L. and Hobbs, P.~V.: Ice particle concentrations and precipitation
+  development in small polar maritime cumuliform clouds, Quarterly Journal of
+  the Royal Meteorological Society, 117, 207--241, 1991.
+
+\bibitem[{Roedder(1967)}]{roedder1967metastable}
+Roedder, E.: Metastable superheated ice in liquid-water inclusions under high
+  negative pressure, Science, 155, 1413--1417, 1967.
+
+\bibitem[{Rosky et~al.(2022)Rosky, Cantrell, Li, and Shaw}]{rosky2022}
+Rosky, E., Cantrell, W., Li, T., and Shaw, R.~A.: Homogeneous ice nucleation
+  rate at negative pressures: The role of the density anomaly, Chemical Physics
+  Letters, 789, 139\,289, 2022.
+
+\bibitem[{Roudsari et~al.(2022)Roudsari, Pakarinen, Reischl, and
+  Vehkam\"aki}]{roudsari2022}
+Roudsari, G., Pakarinen, O.~H., Reischl, B., and Vehkam\"aki, H.: Atomistic and
+  coarse-grained simulations reveal increased ice nucleation activity on silver
+  iodide surfaces in slit and wedge geometries, Atmospheric Chemistry and
+  Physics, 22, 10\,099--10\,114, 2022.
+
+\bibitem[{Seiphoori et~al.(2020)Seiphoori, Ma, Arratia, and
+  Jerolmack}]{seiphoori2020}
+Seiphoori, A., Ma, X.-G., Arratia, P.~E., and Jerolmack, D.~J.: Formation of
+  stable aggregates by fluid-assembled solid bridges, Proceedings of the
+  National Academy of Sciences, 117, 3375--3381, 2020.
+
+\bibitem[{Shaw et~al.(2005)Shaw, Durant, and Mi}]{shaw2005}
+Shaw, R.~A., Durant, A.~J., and Mi, Y.: Heterogeneous surface crystallization
+  observed in undercooled water, Journal of Physical Chemistry B, 109,
+  9865--9868, 2005.
+
+\bibitem[{Steinhardt et~al.(1983)Steinhardt, Nelson, and
+  Ronchetti}]{steinhardt1983}
+Steinhardt, P.~J., Nelson, D.~R., and Ronchetti, M.: Bond-orientational order
+  in liquids and glasses, Physical Review B, 28, 784--805, 1983.
+
+\bibitem[{Stillinger and Weber(1985)}]{stillinger1985computer}
+Stillinger, F.~H. and Weber, T.~A.: Computer simulation of local order in
+  condensed phases of silicon, Physical review B, 31, 5262, 1985.
+
+\bibitem[{Stukowski({2010})}]{ovito}
+Stukowski, A.: {Visualization and analysis of atomistic simulation data with
+  OVITO--the Open Visualization Tool}, {Modeling and Simulation in Materials
+  Science and Engineering}, {18}, {2010}.
+
+\bibitem[{Tan et~al.(2022)Tan, Barahona, and Coopman}]{tan2022potential}
+Tan, I., Barahona, D., and Coopman, Q.: Potential link between ice nucleation
+  and climate model spread in arctic amplification, Geophysical Research
+  Letters, 49, e2021GL097\,373, 2022.
+
+\bibitem[{Wang et~al.(2022)Wang, Wang, Lu, and Liu}]{wang2022nucleation}
+Wang, L., Wang, F., Lu, C., and Liu, H.: Nucleation in supercooled water
+  triggered by mechanical impact: Experimental and theoretical analyses,
+  Journal of Energy Storage, 52, 104\,755, 2022.
+
+\bibitem[{Wheeler and Stroock(2008)}]{wheeler2008transpiration}
+Wheeler, T.~D. and Stroock, A.~D.: The transpiration of water at negative
+  pressures in a synthetic tree, Nature, 455, 208--212, 2008.
+
+\bibitem[{Yang et~al.(2013)Yang, Ovchinnikov, and Shaw}]{yang2013minimalist}
+Yang, F., Ovchinnikov, M., and Shaw, R.~A.: Minimalist model of ice
+  microphysics in mixed-phase stratiform clouds, Geophysical research letters,
+  40, 3756--3760, 2013.
+
+\bibitem[{Yang et~al.(2015)Yang, Shaw, Gurganus, Chong, and Yap}]{yang2015}
+Yang, F., Shaw, R.~A., Gurganus, C.~W., Chong, S.~K., and Yap, Y.~K.: Ice
+  nucleation at the contact line triggered by transient electrowetting fields,
+  Applied Physics Letters, 107, 264\,101, 2015.
+
+\bibitem[{Yang et~al.(2018)Yang, Cruikshank, He, Kostinski, and
+  Shaw}]{yang2018}
+Yang, F., Cruikshank, O., He, W., Kostinski, A., and Shaw, R.: Nonthermal ice
+  nucleation observed at distorted contact lines of supercooled water drops,
+  Physical Review E, 97, 023\,103, 2018.
+
+\bibitem[{Yang et~al.(2020)Yang, Cantrell, Kostinski, Shaw, and
+  Vogelmann}]{yang2020}
+Yang, F., Cantrell, W.~H., Kostinski, A.~B., Shaw, R.~A., and Vogelmann, A.~M.:
+  Is contact nucleation caused by pressure perturbation?, Atmosphere, 11, 2020.
+
+\bibitem[{Zobrist et~al.(2007)Zobrist, Koop, Luo, Marcolli, and
+  Peter}]{zobrist2007}
+Zobrist, B., Koop, T., Luo, B.~P., Marcolli, C., and Peter, T.: Heterogeneous
+  ice nucleation rate coefficient of water droplets coated by a nonadecanol
+  monolayer, Journal of Physical Chemistry C, 111, 2149--2155, 2007.
+
+\end{thebibliography}
